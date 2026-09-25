@@ -111,7 +111,7 @@ def _load_optimizer_entries(optimizer_path: Path, model: str) -> list[dict]:
     payload = json.loads(optimizer_path.read_text(encoding="utf-8"))
     policy_specs = [
         ("llm_judge", "Opt(judge)", FAMILY_COLORS["optimizer_judge"]),
-        ("borda", "Opt(self-cons)", FAMILY_COLORS["optimizer_self_cons"]),
+        ("rrf", "Opt(self-cons)", FAMILY_COLORS["optimizer_self_cons"]),
     ]
     entries = []
 

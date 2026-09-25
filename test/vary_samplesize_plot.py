@@ -15,11 +15,11 @@ VARY_SAMPLES_ROOT = TEST_ROOT / "vary_samples"
 DATASETS = ("dl20",)
 TARGET_SAMPLE_SIZES = (16,18,20,22)
 POLICY_LABELS = {
-    "borda": "Opt(self-cons)",
+    "rrf": "Opt(self-cons)",
     "llm_judge": "Opt(judge)",
 }
 LINE_COLORS = {
-    ("borda", 0): "tab:blue",
+    ("rrf", 0): "tab:blue",
     ("llm_judge", 0): "tab:orange",
 }
 MODEL_LABELS = {
@@ -31,11 +31,11 @@ BASELINE_COLORS = {
     "openai-gpt-4.1": "tab:green",
 }
 POLICY_LINESTYLES = {
-    "borda": "-",
+    "rrf": "-",
     "llm_judge": "--",
 }
 POLICY_MARKERS = {
-    "borda": "X",
+    "rrf": "X",
     "llm_judge": "P",
 }
 

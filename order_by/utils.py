@@ -320,17 +320,12 @@ def kendalltau_distance(gold: list, predict: list) -> float:
     tau, p_value = kendalltau(gold_ranks, pred_ranks)
     return tau
 
-def borda(rankings):
-    scores = defaultdict(int)
+def rrf(rankings, k: int = 60):
+    scores = defaultdict(float)
     for ranking in rankings:
-        n = len(ranking)
         for position, item in enumerate(ranking):
-            # worst item first → lowest score
-            score = position
-            scores[item] += score
-    ranked_items = sorted(scores.items(), key=lambda x: (x[1], x[0]))
-    # print('ranked_items', ranked_items)
-    # ranked_items = [item for item, score in ranked_items]
+            scores[item] += 1.0 / (k + position + 1)
+    ranked_items = sorted(scores.items(), key=lambda x: (-x[1], x[0]))
     return ranked_items
 
 def create_numbered_passages(passages, usePID = False):

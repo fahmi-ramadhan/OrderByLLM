@@ -22,37 +22,37 @@ OPTIMIZER_RUNS = (
         "dataset": "dl20",
         "model": "openai-gpt-4.1",
         "budgets": "10,20,40,80",
-        "proxy_policies": "borda,llm_judge",
+        "proxy_policies": "rrf,llm_judge",
     },
     {
         "dataset": "dl20",
         "model": "llama3.1-70b",
         "budgets": "1,3,5,7",
-        "proxy_policies": "borda,llm_judge",
+        "proxy_policies": "rrf,llm_judge",
     },
     {
         "dataset": "sembench_movie",
         "model": "openai-gpt-4.1",
         "budgets": "3,6,12,24",
-        "proxy_policies": "borda,llm_judge",
+        "proxy_policies": "rrf,llm_judge",
     },
     {
         "dataset": "sembench_movie",
         "model": "llama3.1-70b",
         "budgets": "0.2,0.4,0.8,1.6",
-        "proxy_policies": "borda,llm_judge",
+        "proxy_policies": "rrf,llm_judge",
     },
     {
         "dataset": "population",
         "model": "openai-gpt-4.1",
         "budgets": "1",
-        "proxy_policies": "borda,llm_judge",
+        "proxy_policies": "rrf,llm_judge",
     },
     {
         "dataset": "population",
         "model": "llama3.1-70b",
         "budgets": "0.1",
-        "proxy_policies": "borda,llm_judge",
+        "proxy_policies": "rrf,llm_judge",
     },
 )
 
@@ -119,7 +119,7 @@ def _run_test_optimizers(run_vary_samples: bool = False) -> None:
             # _run(base_cmd + ["--sample-size", "20"])
             for sample_size in OPTIMIZER_SAMPLE_SIZES:
                 vary_budgets = spec["budgets"]
-                vary_proxy_policies = "borda,llm_judge"
+                vary_proxy_policies = "rrf,llm_judge"
                 _run(
                     [
                         sys.executable,

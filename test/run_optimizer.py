@@ -625,10 +625,10 @@ def main():
                         help="Random seed (default: 0).")
     parser.add_argument("--sample-size", type=int, default=20,
                         help="Number of items to probe during optimization (default: 20).")
-    parser.add_argument("--proxy-policies", default="borda",
+    parser.add_argument("--proxy-policies", default="rrf",
                         help="Comma-separated list of proxy ground-truth policies to sweep over. "
-                             "Choices: borda, llm_judge, ideal (default: borda). "
-                             "Example: --proxy-policies borda,llm_judge")
+                             "Choices: rrf, llm_judge, ideal (default: rrf). "
+                             "Example: --proxy-policies rrf,llm_judge")
     parser.add_argument("--ext-point-batch", type=int, default=8,
                         help="Batch size for external-pointwise during optimization (default: 8).")
 
@@ -659,7 +659,7 @@ def main():
     args.budgets = [float(b.strip()) for b in str(args.budgets).split(",") if b.strip()]
     if not args.budgets:
         raise ValueError("At least one budget is required.")
-    valid_policies = {"borda", "llm_judge", "ideal"}
+    valid_policies = {"rrf", "llm_judge", "ideal"}
     args.proxy_policies = [p.strip() for p in str(args.proxy_policies).split(",") if p.strip()]
     invalid = set(args.proxy_policies) - valid_policies
     if invalid:

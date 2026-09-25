@@ -131,13 +131,13 @@ def _log_fit(xs: np.ndarray, ys: np.ndarray):
 # ── Main plot function ────────────────────────────────────────────────────────
 
 _OPTIMIZER_MARKER = {
-    "borda":     "X",
+    "rrf":       "X",
     "llm_judge": "P",
     "ideal":     "H",
 }
 
 _OPTIMIZER_COLOR = {
-    "borda":     "tab:orange",
+    "rrf":       "tab:orange",
     "llm_judge": "tab:cyan",
     "ideal":     "gold",
 }
@@ -211,7 +211,7 @@ def plot_payload(payload: dict, output_dir: Path, results_dir: Path | None = Non
     # (text labels next to algorithm dots removed for cleaner plots)
 
 
-    # ── Optimizer dots (borda, llm_judge, ideal) ────────────────────────────
+    # ── Optimizer dots (rrf, llm_judge, ideal) ────────────────────────────
     opt_dots = []
     if results_dir and model:
         opt_dots = _load_optimizer_data(results_dir, model)
@@ -229,12 +229,12 @@ def plot_payload(payload: dict, output_dir: Path, results_dir: Path | None = Non
             markeredgecolor="black", markeredgewidth=1.2,
             markersize=13, zorder=5, linestyle="None",
         )
-        if policy not in ("borda", "llm_judge", "ideal"):
+        if policy not in ("rrf", "llm_judge", "ideal"):
             label = f'{policy} ${dot["budget"]}'
             opt_texts.append(ax.text(dot["cost"], dot["score"], label, fontsize=10, fontstyle="italic"))
 
     # Connect optimizer dots with curves, starting from bm25
-    for curve_policy, curve_style in [("borda", "--"), ("llm_judge", "--"), ("ideal", "--")]:
+    for curve_policy, curve_style in [("rrf", "--"), ("llm_judge", "--"), ("ideal", "--")]:
         curve_dots = sorted([d for d in opt_dots if d["policy"] == curve_policy], key=lambda d: d["cost"])
         if curve_dots:
             cx = [d["cost"] for d in curve_dots]
@@ -273,7 +273,7 @@ def plot_payload(payload: dict, output_dir: Path, results_dir: Path | None = Non
         "merge": "ext_merge_4",
     }
     _OPTIMIZER_LEGEND = {
-        "borda": "Opt(self-cons)",
+        "rrf": "Opt(self-cons)",
         "llm_judge": "Opt(judge)",
         "ideal": "Opt(ideal)",
     }

@@ -54,7 +54,7 @@ class OrderByOptimizer:
         llm_judge_prompt_template: str,
         sample_size: float = 20,
         has_id_and_row: bool = False,
-        proxy_ground_truth_policy = 'borda',
+        proxy_ground_truth_policy = 'rrf',
         ideal_oracle = None,
         k: int = None,
         judge_model = None,
@@ -67,7 +67,7 @@ class OrderByOptimizer:
         wiki_field = None,
         use_simulation_estimate: bool = False,
     ):
-        assert proxy_ground_truth_policy in ['borda', 'llm_judge', 'ext_bubble_4', 'ideal'], print(f"proxy_ground_truth_policy must be one of ['borda', 'llm_judge', 'ext_bubble_4', 'ideal_oracle'], but got {proxy_ground_truth_policy}")
+        assert proxy_ground_truth_policy in ['rrf', 'llm_judge', 'ext_bubble_4', 'ideal'], print(f"proxy_ground_truth_policy must be one of ['rrf', 'llm_judge', 'ext_bubble_4', 'ideal_oracle'], but got {proxy_ground_truth_policy}")
         self.ideal_oracle = ideal_oracle
         self.llm_judge_prompt_template = llm_judge_prompt_template
         self.proxy_ground_truth_policy = proxy_ground_truth_policy
@@ -472,12 +472,12 @@ class OrderByOptimizer:
         if merge_batch > 0:
             if f'ext_merge_{merge_batch}' not in init_algs:
                 batch_algs.append(f'ext_merge_{merge_batch}')
-            if merge_batch == 4 and self.proxy_ground_truth_policy == 'borda':
+            if merge_batch == 4 and self.proxy_ground_truth_policy == 'rrf':
                 batch_algs.append(f"ext_merge_6")
         if bubble_batch > 0:
             if f'ext_bubble_{bubble_batch}' not in init_algs:
                 batch_algs.append(f'ext_bubble_{bubble_batch}')
-            if bubble_batch == 4 and self.proxy_ground_truth_policy == 'borda':
+            if bubble_batch == 4 and self.proxy_ground_truth_policy == 'rrf':
                 batch_algs.append(f"ext_bubble_6")
 
         results, names, additional_invoked_budget = await self.invoke_all_on_samples(
@@ -530,7 +530,7 @@ class OrderByOptimizer:
                 best_alg = await self.determine_best_ranking_order(filtered_extracted, sampled_data[:])
             return await self.map_algname_2_alg(self.data[:], best_alg, final_decision=True), best_alg, self.ranking_budget, self.optimization_budget
 
-        elif self.proxy_ground_truth_policy == 'borda':
+        elif self.proxy_ground_truth_policy == 'rrf':
             all_rankings = {}
             for sorted_data, curr_price, alg_name, num_calls in extracted:
                 ranking = []
@@ -543,7 +543,7 @@ class OrderByOptimizer:
                 est_price = self.estimated_total_price(alg_name, curr_price, sample_size, actual_sample_api_calls=num_calls)
                 if est_price < self.ranking_budget:
                     assert len(all_rankings) > 0, print(f'all_rankings is empty')
-                    gold_sorted_data = borda(all_rankings.values())
+                    gold_sorted_data = rrf(all_rankings.values())
                     gold_ids = []
                     for (doc_id, score) in gold_sorted_data:
                         gold_ids.append(doc_id)
