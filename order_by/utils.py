@@ -243,7 +243,7 @@ def tokens2price(model, in_tokens, out_tokens):
         'mistral-7b': (0.25, 0.25),
         'openai/gpt-oss-20b-maas': (0.07, 0.25),
         'openai/gpt-oss-120b-maas': (0.09, 0.36),
-        'openai/gpt-oss-120b': (0.09, 0.36),
+        'openai/gpt-oss-120b': (0.15, 0.60),
         'meta/llama-3.3-70b-instruct-maas': (0.72, 0.72),
     }
 

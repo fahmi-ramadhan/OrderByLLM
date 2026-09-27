@@ -1,6 +1,6 @@
 {
   "dataset": "sembench_movie",
-  "generated_at": "2026-09-27T05:56:00.466981+00:00",
+  "generated_at": "2026-09-27T12:58:42.238634+00:00",
   "settings": {
     "csv": "data/movie/rotten_tomatoes_movie_reviews.csv",
     "top_k_movies": 2,
@@ -55,13 +55,13 @@
       },
       "per_movie_costs": {
         "0": {
-          "parasite_2019": 0.006518,
-          "ant_man_and_the_wasp_quantumania": 0.006817
+          "parasite_2019": 0.010863,
+          "ant_man_and_the_wasp_quantumania": 0.011361
         }
       },
       "score_mean": 0.9248510731851407,
       "score_std": 0.0,
-      "price": 0.013334,
+      "price": 0.022224,
       "tokens": 84173
     },
     {
@@ -77,13 +77,13 @@
       },
       "per_movie_costs": {
         "0": {
-          "parasite_2019": 0.026213,
-          "ant_man_and_the_wasp_quantumania": 0.014952
+          "parasite_2019": 0.043688,
+          "ant_man_and_the_wasp_quantumania": 0.02492
         }
       },
       "score_mean": 0.9341474045009364,
       "score_std": 0.0,
-      "price": 0.041165,
+      "price": 0.068609,
       "tokens": 185434
     },
     {
@@ -99,13 +99,13 @@
       },
       "per_movie_costs": {
         "0": {
-          "parasite_2019": 0.060642,
-          "ant_man_and_the_wasp_quantumania": 0.036586
+          "parasite_2019": 0.10107,
+          "ant_man_and_the_wasp_quantumania": 0.060976
         }
       },
       "score_mean": 0.9319437005257362,
       "score_std": 0.0,
-      "price": 0.097228,
+      "price": 0.162046,
       "tokens": 441497
     },
     {
@@ -121,13 +121,13 @@
       },
       "per_movie_costs": {
         "0": {
-          "parasite_2019": 0.002773,
-          "ant_man_and_the_wasp_quantumania": 0.003569
+          "parasite_2019": 0.004621,
+          "ant_man_and_the_wasp_quantumania": 0.005947
         }
       },
       "score_mean": 0.924066515329883,
       "score_std": 0.0,
-      "price": 0.006341,
+      "price": 0.010568,
       "tokens": 33013
     },
     {
@@ -143,13 +143,13 @@
       },
       "per_movie_costs": {
         "0": {
-          "parasite_2019": 0.013405,
-          "ant_man_and_the_wasp_quantumania": 0.014329
+          "parasite_2019": 0.022342,
+          "ant_man_and_the_wasp_quantumania": 0.023881
         }
       },
       "score_mean": 0.9267424989246424,
       "score_std": 0.0,
-      "price": 0.027734,
+      "price": 0.046224,
       "tokens": 127867
     },
     {
@@ -165,13 +165,13 @@
       },
       "per_movie_costs": {
         "0": {
-          "parasite_2019": 0.02778,
-          "ant_man_and_the_wasp_quantumania": 0.027496
+          "parasite_2019": 0.046301,
+          "ant_man_and_the_wasp_quantumania": 0.045827
         }
       },
       "score_mean": 0.9204908873136535,
       "score_std": 0.0,
-      "price": 0.055277,
+      "price": 0.092128,
       "tokens": 231109
     }
   ],
