@@ -535,15 +535,16 @@ async def _run_sembench_movie_algorithms_once(
     )
     outputs["quick_sort"] = (_normalize_docids(q1_sorted), None, q1_in, q1_out)
 
-    _set_alg("quick_sort3 | ext_merge_4  [parallel]")
-    (
-        (q3_sorted, _, q3_in, q3_out),
-        (em_sorted, _, em_in, em_out),
-    ) = await asyncio.gather(
-        quick_sort(ranking[:], client, movie_pairwise_comparison_prompt_template,
-                   model, isPassage=False, vote=3, isReview=True, limit_k=10),
-        external_merge_sort(ranking[:], external_comparisons, 4, client,
-                            movie_external_comparison_prompt_template, model, isPassage=False, isReview=True, limit_k=10),
+    _set_alg("quick_sort3")
+    q3_sorted, _, q3_in, q3_out = await quick_sort(
+        ranking[:], client, movie_pairwise_comparison_prompt_template,
+        model, isPassage=False, vote=3, isReview=True, limit_k=10,
+    )
+
+    _set_alg("ext_merge_4")
+    em_sorted, _, em_in, em_out = await external_merge_sort(
+        ranking[:], external_comparisons, 4, client,
+        movie_external_comparison_prompt_template, model, isPassage=False, isReview=True, limit_k=10,
     )
     outputs["quick_sort3"]           = (_normalize_docids(q3_sorted), None, q3_in, q3_out)
     outputs["external_merge_sort_4"] = (_normalize_docids(em_sorted), None, em_in, em_out)
@@ -598,17 +599,17 @@ async def run_sembench_movie(
         # Phase 2: ext_bubble_sort — run ALL movies in parallel so the slow
         #   algorithm's latency is paid once rather than once-per-movie.
         if alg_pbar is not None:
-            alg_pbar.set_description(f"  alg: {'ext_bubble_sort_4 [all movies]':<35s}")
-        tqdm.write(f"  [bubble] launching ext_bubble_sort_4 for all {len(first_stage)} movies in parallel")
+            alg_pbar.set_description(f"  alg: {'ext_bubble_sort_4 [sequential]':<35s}")
+        tqdm.write(f"  [bubble] running ext_bubble_sort_4 for {len(first_stage)} movies sequentially")
         t0 = asyncio.get_event_loop().time()
-        bubble_results = await asyncio.gather(*[
-            external_bubble_sort(
+        bubble_results = []
+        for movie_id, _ in first_stage:
+            result = await external_bubble_sort(
                 all_shuffled[movie_id][:], external_comparisons, 4, client,
                 movie_external_comparison_prompt_template, args.model,
                 isPassage=False, isReview=True, limit_k=10,
             )
-            for movie_id, _ in first_stage
-        ])
+            bubble_results.append(result)
         elapsed = asyncio.get_event_loop().time() - t0
         tqdm.write(f"  [bubble] all done in {elapsed:.1f}s")
         if pbar is not None:
