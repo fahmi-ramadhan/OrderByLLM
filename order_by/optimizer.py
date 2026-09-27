@@ -586,12 +586,51 @@ class OrderByOptimizer:
             fallback_alg = f'ext_point_{self._ext_point_batch}' if self._ext_point_batch > 0 else 'point'
             if len(candidates) == 0:
                 best_alg = fallback_alg
-            else:
-                best_candidate = max(candidates, key=lambda x: (x[0], x[1])) if candidates else None
-                assert best_candidate != None
-                _, _, best_alg = best_candidate
-            final_ans = await self.map_algname_2_alg(self.data[:], best_alg, final_decision=True)
-            return final_ans, best_alg, self.ranking_budget, self.optimization_budget
+                final_ans = await self.map_algname_2_alg(self.data[:], best_alg, final_decision=True)
+                return final_ans, best_alg, self.ranking_budget, self.optimization_budget
+
+            # Greedily select highest-agreement candidates whose combined estimated cost fits the budget.
+            candidates.sort(key=lambda x: (x[0], x[1]), reverse=True)
+            selected = []
+            remaining_budget = self.ranking_budget
+            for quality, est_price, alg_name in candidates:
+                if est_price <= remaining_budget:
+                    selected.append(alg_name)
+                    remaining_budget -= est_price
+
+            if len(selected) == 0:
+                selected = [candidates[0][2]]
+
+            if len(selected) == 1:
+                final_ans = await self.map_algname_2_alg(self.data[:], selected[0], final_decision=True)
+                return final_ans, selected[0], self.ranking_budget, self.optimization_budget
+
+            # Run each selected algorithm on full data and fuse via RRF.
+            full_rankings = {}
+            total_in = self.total_input_tokens
+            total_out = self.total_output_tokens
+            for alg_name in selected:
+                result = await self.map_algname_2_alg(self.data[:], alg_name, final_decision=False)
+                sorted_data, num_calls, in_tok, out_tok = result
+                total_in += in_tok
+                total_out += out_tok
+                ranking = []
+                for data in sorted_data:
+                    ranking.append(data[0] if type(data) == tuple else data)
+                # Algorithms return ascending order (best last).
+                # RRF expects descending order (best first = position 0 = highest weight).
+                ranking.reverse()
+                full_rankings[alg_name] = ranking
+
+            fused = rrf(full_rankings.values())
+            # RRF returns descending (highest-score first = most relevant).
+            # Internal convention is ascending (most relevant last).
+            fused_ids = [str(doc_id) for doc_id, _ in fused]
+            fused_ids.reverse()
+            if self.k and len(fused_ids) > self.k:
+                fused_ids = fused_ids[-self.k:]
+            chosen_label = ",".join(selected)
+            return (fused_ids, None, total_in, total_out), chosen_label, self.ranking_budget, self.optimization_budget
 
 
 
