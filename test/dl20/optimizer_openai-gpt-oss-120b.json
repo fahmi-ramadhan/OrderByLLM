@@ -1,0 +1,328 @@
+{
+  "dataset": "dl20",
+  "models": [
+    "openai/gpt-oss-120b"
+  ],
+  "budgets": [
+    0.06,
+    0.16,
+    0.4,
+    0.8
+  ],
+  "proxy_policies": [
+    "rrf",
+    "llm_judge"
+  ],
+  "results_by_model": {
+    "openai/gpt-oss-120b": {
+      "rrf": {
+        "0.06": {
+          "dataset": "dl20",
+          "generated_at": "2026-09-27T15:51:47.235848+00:00",
+          "settings": {
+            "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
+            "hit_depth": 40,
+            "model": "openai/gpt-oss-120b",
+            "total_ranking_budget": 0.06,
+            "sample_size": 20,
+            "proxy_policy": "rrf"
+          },
+          "score_mean": 0.833,
+          "score_std": 0.0,
+          "per_query_scores": {
+            "1030303": 0.9918798531332953,
+            "1037496": 0.9494126029739881,
+            "1043135": 0.8722345473219011,
+            "1051399": 0.5191157673508552
+          },
+          "per_query_chosen_alg": {
+            "1030303": "ext_merge_6",
+            "1037496": "ext_merge_6",
+            "1043135": "ddg_point",
+            "1051399": "ext_merge_6"
+          },
+          "chosen_alg_counts": {
+            "ext_merge_6": 3,
+            "ddg_point": 1
+          },
+          "total_ranking_budget": 0.06,
+          "per_query_budget": 0.015,
+          "total_optimization_cost": 0.09784899999999999,
+          "total_ranking_cost": 0.04484100000000002,
+          "in_tokens": 282972,
+          "out_tokens": 167074,
+          "metric_name": "ndcg@10"
+        },
+        "0.16": {
+          "dataset": "dl20",
+          "generated_at": "2026-09-27T15:55:14.812026+00:00",
+          "settings": {
+            "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
+            "hit_depth": 40,
+            "model": "openai/gpt-oss-120b",
+            "total_ranking_budget": 0.16,
+            "sample_size": 20,
+            "proxy_policy": "rrf"
+          },
+          "score_mean": 0.834,
+          "score_std": 0.0,
+          "per_query_scores": {
+            "1030303": 0.9918798531332953,
+            "1037496": 0.9543384299005626,
+            "1043135": 0.8722345473219011,
+            "1051399": 0.5191157673508552
+          },
+          "per_query_chosen_alg": {
+            "1030303": "ext_bubble_6,ext_merge_6",
+            "1037496": "ext_merge_4,ext_merge_6",
+            "1043135": "ddg_point",
+            "1051399": "ext_merge_6,ext_bubble_6"
+          },
+          "chosen_alg_counts": {
+            "ext_bubble_6,ext_merge_6": 1,
+            "ext_merge_4,ext_merge_6": 1,
+            "ddg_point": 1,
+            "ext_merge_6,ext_bubble_6": 1
+          },
+          "total_ranking_budget": 0.16,
+          "per_query_budget": 0.04,
+          "total_optimization_cost": 0.12436599999999999,
+          "total_ranking_cost": 0.105703,
+          "in_tokens": 425549,
+          "out_tokens": 277061,
+          "metric_name": "ndcg@10"
+        },
+        "0.4": {
+          "dataset": "dl20",
+          "generated_at": "2026-09-27T15:55:32.252808+00:00",
+          "settings": {
+            "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
+            "hit_depth": 40,
+            "model": "openai/gpt-oss-120b",
+            "total_ranking_budget": 0.4,
+            "sample_size": 20,
+            "proxy_policy": "rrf"
+          },
+          "score_mean": 0.835,
+          "score_std": 0.0,
+          "per_query_scores": {
+            "1030303": 0.9952214542912304,
+            "1037496": 0.9543384299005626,
+            "1043135": 0.8722345473219011,
+            "1051399": 0.5191157673508552
+          },
+          "per_query_chosen_alg": {
+            "1030303": "ext_bubble_4,ext_bubble_6,ext_merge_6,ext_merge_4",
+            "1037496": "quick,ext_merge_6,ext_merge_4",
+            "1043135": "ddg_point",
+            "1051399": "ext_merge_6,quick"
+          },
+          "chosen_alg_counts": {
+            "ext_bubble_4,ext_bubble_6,ext_merge_6,ext_merge_4": 1,
+            "quick,ext_merge_6,ext_merge_4": 1,
+            "ddg_point": 1,
+            "ext_merge_6,quick": 1
+          },
+          "total_ranking_budget": 0.4,
+          "per_query_budget": 0.1,
+          "total_optimization_cost": 0.172118,
+          "total_ranking_cost": 0.19252400000000003,
+          "in_tokens": 659917,
+          "out_tokens": 442758,
+          "metric_name": "ndcg@10"
+        },
+        "0.8": {
+          "dataset": "dl20",
+          "generated_at": "2026-09-27T15:56:56.551940+00:00",
+          "settings": {
+            "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
+            "hit_depth": 40,
+            "model": "openai/gpt-oss-120b",
+            "total_ranking_budget": 0.8,
+            "sample_size": 20,
+            "proxy_policy": "rrf"
+          },
+          "score_mean": 0.845,
+          "score_std": 0.0,
+          "per_query_scores": {
+            "1030303": 0.9918798531332953,
+            "1037496": 0.9534606181487503,
+            "1043135": 0.8722345473219011,
+            "1051399": 0.5636867997484418
+          },
+          "per_query_chosen_alg": {
+            "1030303": "ext_bubble_4,ext_bubble_6,ext_merge_6,ext_merge_4,quick",
+            "1037496": "quick,ext_bubble_4,ext_merge_6,ext_merge_4,ext_bubble_6",
+            "1043135": "ddg_point",
+            "1051399": "ext_merge_6,quick,ext_merge_4,ext_bubble_4,ext_bubble_6"
+          },
+          "chosen_alg_counts": {
+            "ext_bubble_4,ext_bubble_6,ext_merge_6,ext_merge_4,quick": 1,
+            "quick,ext_bubble_4,ext_merge_6,ext_merge_4,ext_bubble_6": 1,
+            "ddg_point": 1,
+            "ext_merge_6,quick,ext_merge_4,ext_bubble_4,ext_bubble_6": 1
+          },
+          "total_ranking_budget": 0.8,
+          "per_query_budget": 0.2,
+          "total_optimization_cost": 0.210724,
+          "total_ranking_cost": 0.34813700000000003,
+          "in_tokens": 992245,
+          "out_tokens": 683374,
+          "metric_name": "ndcg@10"
+        }
+      },
+      "llm_judge": {
+        "0.06": {
+          "dataset": "dl20",
+          "generated_at": "2026-09-27T15:56:57.045706+00:00",
+          "settings": {
+            "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
+            "hit_depth": 40,
+            "model": "openai/gpt-oss-120b",
+            "total_ranking_budget": 0.06,
+            "sample_size": 20,
+            "proxy_policy": "llm_judge"
+          },
+          "score_mean": 0.833,
+          "score_std": 0.0,
+          "per_query_scores": {
+            "1030303": 0.9918798531332953,
+            "1037496": 0.9494126029739881,
+            "1043135": 0.8722345473219011,
+            "1051399": 0.5191157673508552
+          },
+          "per_query_chosen_alg": {
+            "1030303": "ext_merge_6",
+            "1037496": "ext_merge_6",
+            "1043135": "ddg_point",
+            "1051399": "ext_merge_6"
+          },
+          "chosen_alg_counts": {
+            "ext_merge_6": 3,
+            "ddg_point": 1
+          },
+          "total_ranking_budget": 0.06,
+          "per_query_budget": 0.015,
+          "total_optimization_cost": 0.09784899999999999,
+          "total_ranking_cost": 0.04484100000000002,
+          "in_tokens": 282972,
+          "out_tokens": 167074,
+          "metric_name": "ndcg@10"
+        },
+        "0.16": {
+          "dataset": "dl20",
+          "generated_at": "2026-09-27T15:57:12.388823+00:00",
+          "settings": {
+            "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
+            "hit_depth": 40,
+            "model": "openai/gpt-oss-120b",
+            "total_ranking_budget": 0.16,
+            "sample_size": 20,
+            "proxy_policy": "llm_judge"
+          },
+          "score_mean": 0.833,
+          "score_std": 0.0,
+          "per_query_scores": {
+            "1030303": 0.9876624199868951,
+            "1037496": 0.9101689475976367,
+            "1043135": 0.8722345473219011,
+            "1051399": 0.5636867997484418
+          },
+          "per_query_chosen_alg": {
+            "1030303": "ext_bubble_6",
+            "1037496": "ext_bubble_6",
+            "1043135": "ddg_point",
+            "1051399": "ext_bubble_6"
+          },
+          "chosen_alg_counts": {
+            "ext_bubble_6": 3,
+            "ddg_point": 1
+          },
+          "total_ranking_budget": 0.16,
+          "per_query_budget": 0.04,
+          "total_optimization_cost": 0.10851699999999999,
+          "total_ranking_cost": 0.083167,
+          "in_tokens": 356678,
+          "out_tokens": 230304,
+          "metric_name": "ndcg@10"
+        },
+        "0.4": {
+          "dataset": "dl20",
+          "generated_at": "2026-09-27T15:57:26.603255+00:00",
+          "settings": {
+            "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
+            "hit_depth": 40,
+            "model": "openai/gpt-oss-120b",
+            "total_ranking_budget": 0.4,
+            "sample_size": 20,
+            "proxy_policy": "llm_judge"
+          },
+          "score_mean": 0.828,
+          "score_std": 0.0,
+          "per_query_scores": {
+            "1030303": 0.9952214542912304,
+            "1037496": 0.9123576594036434,
+            "1043135": 0.8722345473219011,
+            "1051399": 0.5341442836238036
+          },
+          "per_query_chosen_alg": {
+            "1030303": "ext_merge_4",
+            "1037496": "ext_bubble_4",
+            "1043135": "ddg_point",
+            "1051399": "ext_merge_4"
+          },
+          "chosen_alg_counts": {
+            "ext_merge_4": 2,
+            "ext_bubble_4": 1,
+            "ddg_point": 1
+          },
+          "total_ranking_budget": 0.4,
+          "per_query_budget": 0.1,
+          "total_optimization_cost": 0.12975199999999998,
+          "total_ranking_cost": 0.08347100000000002,
+          "in_tokens": 397778,
+          "out_tokens": 255927,
+          "metric_name": "ndcg@10"
+        },
+        "0.8": {
+          "dataset": "dl20",
+          "generated_at": "2026-09-27T15:57:33.442494+00:00",
+          "settings": {
+            "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
+            "hit_depth": 40,
+            "model": "openai/gpt-oss-120b",
+            "total_ranking_budget": 0.8,
+            "sample_size": 20,
+            "proxy_policy": "llm_judge"
+          },
+          "score_mean": 0.827,
+          "score_std": 0.0,
+          "per_query_scores": {
+            "1030303": 0.9876624199868951,
+            "1037496": 0.9123576594036434,
+            "1043135": 0.8722345473219011,
+            "1051399": 0.5341442836238036
+          },
+          "per_query_chosen_alg": {
+            "1030303": "ext_bubble_4",
+            "1037496": "ext_bubble_4",
+            "1043135": "ddg_point",
+            "1051399": "ext_merge_4"
+          },
+          "chosen_alg_counts": {
+            "ext_bubble_4": 2,
+            "ddg_point": 1,
+            "ext_merge_4": 1
+          },
+          "total_ranking_budget": 0.8,
+          "per_query_budget": 0.2,
+          "total_optimization_cost": 0.168358,
+          "total_ranking_cost": 0.10209200000000002,
+          "in_tokens": 500343,
+          "out_tokens": 325665,
+          "metric_name": "ndcg@10"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,316 @@
+{
+  "dataset": "sembench_movie",
+  "models": [
+    "openai/gpt-oss-120b"
+  ],
+  "budgets": [
+    0.03,
+    0.06,
+    0.15,
+    0.3
+  ],
+  "proxy_policies": [
+    "rrf",
+    "llm_judge"
+  ],
+  "results_by_model": {
+    "openai/gpt-oss-120b": {
+      "rrf": {
+        "0.03": {
+          "dataset": "sembench_movie",
+          "generated_at": "2026-09-27T15:08:27.887021+00:00",
+          "settings": {
+            "csv": "data/movie/rotten_tomatoes_movie_reviews.csv",
+            "top_k_movies": 2,
+            "review_limit": 50,
+            "model": "openai/gpt-oss-120b",
+            "total_ranking_budget": 0.03,
+            "sample_size": 20,
+            "proxy_policy": "rrf"
+          },
+          "score_mean": 0.932,
+          "score_std": 0.0,
+          "per_movie_scores": {
+            "parasite_2019": 0.9681206074115273,
+            "ant_man_and_the_wasp_quantumania": 0.8960847185288947
+          },
+          "per_movie_chosen_alg": {
+            "parasite_2019": "ext_merge_8",
+            "ant_man_and_the_wasp_quantumania": "ext_merge_8"
+          },
+          "chosen_alg_counts": {
+            "ext_merge_8": 2
+          },
+          "total_ranking_budget": 0.03,
+          "per_movie_budget": {
+            "parasite_2019": 0.015,
+            "ant_man_and_the_wasp_quantumania": 0.015
+          },
+          "total_optimization_cost": 0.061125,
+          "total_ranking_cost": 0.025179000000000007,
+          "in_tokens": 119178,
+          "out_tokens": 114045,
+          "metric_name": "ndcg@10"
+        },
+        "0.06": {
+          "dataset": "sembench_movie",
+          "generated_at": "2026-09-27T15:08:35.231957+00:00",
+          "settings": {
+            "csv": "data/movie/rotten_tomatoes_movie_reviews.csv",
+            "top_k_movies": 2,
+            "review_limit": 50,
+            "model": "openai/gpt-oss-120b",
+            "total_ranking_budget": 0.06,
+            "sample_size": 20,
+            "proxy_policy": "rrf"
+          },
+          "score_mean": 0.91,
+          "score_std": 0.0,
+          "per_movie_scores": {
+            "parasite_2019": 0.9269556682434272,
+            "ant_man_and_the_wasp_quantumania": 0.8923327453091384
+          },
+          "per_movie_chosen_alg": {
+            "parasite_2019": "ext_bubble_8",
+            "ant_man_and_the_wasp_quantumania": "ext_bubble_10,ext_merge_6"
+          },
+          "chosen_alg_counts": {
+            "ext_bubble_8": 1,
+            "ext_bubble_10,ext_merge_6": 1
+          },
+          "total_ranking_budget": 0.06,
+          "per_movie_budget": {
+            "parasite_2019": 0.03,
+            "ant_man_and_the_wasp_quantumania": 0.03
+          },
+          "total_optimization_cost": 0.074903,
+          "total_ranking_cost": 0.050904000000000005,
+          "in_tokens": 159540,
+          "out_tokens": 169794,
+          "metric_name": "ndcg@10"
+        },
+        "0.15": {
+          "dataset": "sembench_movie",
+          "generated_at": "2026-09-27T15:08:42.560054+00:00",
+          "settings": {
+            "csv": "data/movie/rotten_tomatoes_movie_reviews.csv",
+            "top_k_movies": 2,
+            "review_limit": 50,
+            "model": "openai/gpt-oss-120b",
+            "total_ranking_budget": 0.15,
+            "sample_size": 20,
+            "proxy_policy": "rrf"
+          },
+          "score_mean": 0.937,
+          "score_std": 0.0,
+          "per_movie_scores": {
+            "parasite_2019": 0.9795165752481407,
+            "ant_man_and_the_wasp_quantumania": 0.8938894830678713
+          },
+          "per_movie_chosen_alg": {
+            "parasite_2019": "quick",
+            "ant_man_and_the_wasp_quantumania": "ext_bubble_4,ext_merge_6"
+          },
+          "chosen_alg_counts": {
+            "quick": 1,
+            "ext_bubble_4,ext_merge_6": 1
+          },
+          "total_ranking_budget": 0.15,
+          "per_movie_budget": {
+            "parasite_2019": 0.075,
+            "ant_man_and_the_wasp_quantumania": 0.075
+          },
+          "total_optimization_cost": 0.11491699999999999,
+          "total_ranking_cost": 0.10658500000000001,
+          "in_tokens": 281395,
+          "out_tokens": 298821,
+          "metric_name": "ndcg@10"
+        },
+        "0.3": {
+          "dataset": "sembench_movie",
+          "generated_at": "2026-09-27T15:08:50.347143+00:00",
+          "settings": {
+            "csv": "data/movie/rotten_tomatoes_movie_reviews.csv",
+            "top_k_movies": 2,
+            "review_limit": 50,
+            "model": "openai/gpt-oss-120b",
+            "total_ranking_budget": 0.3,
+            "sample_size": 20,
+            "proxy_policy": "rrf"
+          },
+          "score_mean": 0.93,
+          "score_std": 0.0,
+          "per_movie_scores": {
+            "parasite_2019": 0.9673340673790107,
+            "ant_man_and_the_wasp_quantumania": 0.8923116967318456
+          },
+          "per_movie_chosen_alg": {
+            "parasite_2019": "quick,ext_bubble_4,ext_merge_4,ext_merge_6",
+            "ant_man_and_the_wasp_quantumania": "quick,ext_merge_6"
+          },
+          "chosen_alg_counts": {
+            "quick,ext_bubble_4,ext_merge_4,ext_merge_6": 1,
+            "quick,ext_merge_6": 1
+          },
+          "total_ranking_budget": 0.3,
+          "per_movie_budget": {
+            "parasite_2019": 0.15,
+            "ant_man_and_the_wasp_quantumania": 0.15
+          },
+          "total_optimization_cost": 0.11491699999999999,
+          "total_ranking_cost": 0.1708,
+          "in_tokens": 355579,
+          "out_tokens": 387301,
+          "metric_name": "ndcg@10"
+        }
+      },
+      "llm_judge": {
+        "0.03": {
+          "dataset": "sembench_movie",
+          "generated_at": "2026-09-27T15:08:58.036760+00:00",
+          "settings": {
+            "csv": "data/movie/rotten_tomatoes_movie_reviews.csv",
+            "top_k_movies": 2,
+            "review_limit": 50,
+            "model": "openai/gpt-oss-120b",
+            "total_ranking_budget": 0.03,
+            "sample_size": 20,
+            "proxy_policy": "llm_judge"
+          },
+          "score_mean": 0.932,
+          "score_std": 0.0,
+          "per_movie_scores": {
+            "parasite_2019": 0.9681206074115273,
+            "ant_man_and_the_wasp_quantumania": 0.8960847185288947
+          },
+          "per_movie_chosen_alg": {
+            "parasite_2019": "ext_merge_8",
+            "ant_man_and_the_wasp_quantumania": "ext_merge_8"
+          },
+          "chosen_alg_counts": {
+            "ext_merge_8": 2
+          },
+          "total_ranking_budget": 0.03,
+          "per_movie_budget": {
+            "parasite_2019": 0.015,
+            "ant_man_and_the_wasp_quantumania": 0.015
+          },
+          "total_optimization_cost": 0.061125,
+          "total_ranking_cost": 0.025179000000000007,
+          "in_tokens": 119178,
+          "out_tokens": 114045,
+          "metric_name": "ndcg@10"
+        },
+        "0.06": {
+          "dataset": "sembench_movie",
+          "generated_at": "2026-09-27T15:09:17.440305+00:00",
+          "settings": {
+            "csv": "data/movie/rotten_tomatoes_movie_reviews.csv",
+            "top_k_movies": 2,
+            "review_limit": 50,
+            "model": "openai/gpt-oss-120b",
+            "total_ranking_budget": 0.06,
+            "sample_size": 20,
+            "proxy_policy": "llm_judge"
+          },
+          "score_mean": 0.927,
+          "score_std": 0.0,
+          "per_movie_scores": {
+            "parasite_2019": 0.9612453051864527,
+            "ant_man_and_the_wasp_quantumania": 0.8922396926628323
+          },
+          "per_movie_chosen_alg": {
+            "parasite_2019": "ext_merge_4",
+            "ant_man_and_the_wasp_quantumania": "ext_merge_4"
+          },
+          "chosen_alg_counts": {
+            "ext_merge_4": 2
+          },
+          "total_ranking_budget": 0.06,
+          "per_movie_budget": {
+            "parasite_2019": 0.03,
+            "ant_man_and_the_wasp_quantumania": 0.03
+          },
+          "total_optimization_cost": 0.064236,
+          "total_ranking_cost": 0.050068,
+          "in_tokens": 167404,
+          "out_tokens": 148656,
+          "metric_name": "ndcg@10"
+        },
+        "0.15": {
+          "dataset": "sembench_movie",
+          "generated_at": "2026-09-27T15:09:35.223227+00:00",
+          "settings": {
+            "csv": "data/movie/rotten_tomatoes_movie_reviews.csv",
+            "top_k_movies": 2,
+            "review_limit": 50,
+            "model": "openai/gpt-oss-120b",
+            "total_ranking_budget": 0.15,
+            "sample_size": 20,
+            "proxy_policy": "llm_judge"
+          },
+          "score_mean": 0.936,
+          "score_std": 0.0,
+          "per_movie_scores": {
+            "parasite_2019": 0.9795165752481407,
+            "ant_man_and_the_wasp_quantumania": 0.8922396926628323
+          },
+          "per_movie_chosen_alg": {
+            "parasite_2019": "quick",
+            "ant_man_and_the_wasp_quantumania": "ext_merge_4"
+          },
+          "chosen_alg_counts": {
+            "quick": 1,
+            "ext_merge_4": 1
+          },
+          "total_ranking_budget": 0.15,
+          "per_movie_budget": {
+            "parasite_2019": 0.075,
+            "ant_man_and_the_wasp_quantumania": 0.075
+          },
+          "total_optimization_cost": 0.08505,
+          "total_ranking_cost": 0.07116099999999999,
+          "in_tokens": 224904,
+          "out_tokens": 204126,
+          "metric_name": "ndcg@10"
+        },
+        "0.3": {
+          "dataset": "sembench_movie",
+          "generated_at": "2026-09-27T15:09:49.738043+00:00",
+          "settings": {
+            "csv": "data/movie/rotten_tomatoes_movie_reviews.csv",
+            "top_k_movies": 2,
+            "review_limit": 50,
+            "model": "openai/gpt-oss-120b",
+            "total_ranking_budget": 0.3,
+            "sample_size": 20,
+            "proxy_policy": "llm_judge"
+          },
+          "score_mean": 0.934,
+          "score_std": 0.0,
+          "per_movie_scores": {
+            "parasite_2019": 0.9795165752481407,
+            "ant_man_and_the_wasp_quantumania": 0.888778233753732
+          },
+          "per_movie_chosen_alg": {
+            "parasite_2019": "quick",
+            "ant_man_and_the_wasp_quantumania": "quick"
+          },
+          "chosen_alg_counts": {
+            "quick": 2
+          },
+          "total_ranking_budget": 0.3,
+          "per_movie_budget": {
+            "parasite_2019": 0.15,
+            "ant_man_and_the_wasp_quantumania": 0.15
+          },
+          "total_optimization_cost": 0.08505,
+          "total_ranking_cost": 0.07237800000000001,
+          "in_tokens": 218567,
+          "out_tokens": 207739,
+          "metric_name": "ndcg@10"
+        }
+      }
+    }
+  }
+}
