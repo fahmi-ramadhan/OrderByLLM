@@ -7,7 +7,6 @@ from typing import Any, List, Callable, Tuple
 import hashlib
 import random
 import heapq
-import collections
 import logging
 log = logging.getLogger(__name__)
 
@@ -126,7 +125,7 @@ async def quick_sort(data, client, prompt_template, modelname, isPassage, vote =
     # First, compare all items to the pivot concurrently
     rest_items = data[1:]
     compare_results = []
-    req_batch_size = 25
+    req_batch_size = 5
     wrapped_items = [Pair_Comparison_Key(item, s) for item in rest_items]
     for i in range(0, len(wrapped_items), req_batch_size):
         batch_wrapped_items = wrapped_items[i:i+req_batch_size]
@@ -184,7 +183,7 @@ async def quick_sort(data, client, prompt_template, modelname, isPassage, vote =
         if peer_tasks:
             coros = [peer_task[2] for peer_task in peer_tasks]
             peer_results = []
-            req_batch_size = 25
+            req_batch_size = 5
             for i in range(0, len(coros), req_batch_size):
                 batch_coros = coros[i:i+req_batch_size]
                 batch_peer_results = await asyncio.gather(*batch_coros)

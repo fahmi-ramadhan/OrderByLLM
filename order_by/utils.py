@@ -11,6 +11,7 @@ import httpx
 import asyncio
 from collections import defaultdict
 import math, statistics
+import os
 
 import pandas as pd
 
@@ -186,13 +187,25 @@ def build_client() -> AsyncOpenAI:
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
         raise ValueError("OPENAI_API_KEY is required in environment or .env")
+    # import subprocess
+    # api_key = subprocess.check_output(
+    #     ["gcloud", "auth", "print-access-token"],
+    #     text=True,
+    # ).strip()
     base_url = os.getenv("OPENAI_BASE_URL") or None
     return AsyncOpenAI(api_key=api_key, base_url=base_url)
 
 
 T = TypeVar("T")
+
+MAX_CONCURRENT_REQUESTS = int(os.getenv("MAX_CONCURRENT_REQUESTS", "5"))
+_api_semaphore = asyncio.Semaphore(MAX_CONCURRENT_REQUESTS)
+
 async def resolve(v: Union[T, Awaitable[T]]) -> T:
-    return await v if inspect.isawaitable(v) else v
+    if inspect.isawaitable(v):
+        async with _api_semaphore:
+            return await v
+    return v
 
 def hash_prompt(prompt: str, modelname: str) -> str:
     return hashlib.sha256(f"{modelname}:{prompt}".encode()).hexdigest()
@@ -227,7 +240,11 @@ def tokens2price(model, in_tokens, out_tokens):
         'openai-gpt-5': (1.25, 10.00),
         'openai-gpt-5-mini': (0.25, 2.00),
         'openai-gpt-4.1': (2.00, 8.00),
-        'mistral-7b': (0.25, 0.25)
+        'mistral-7b': (0.25, 0.25),
+        'openai/gpt-oss-20b-maas': (0.07, 0.25),
+        'openai/gpt-oss-120b-maas': (0.09, 0.36),
+        'openai/gpt-oss-120b': (0.09, 0.36),
+        'meta/llama-3.3-70b-instruct-maas': (0.72, 0.72),
     }
 
     if model in pricing:
