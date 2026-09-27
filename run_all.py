@@ -6,52 +6,40 @@ import subprocess
 import sys
 from pathlib import Path
 
-
 PROJECT_ROOT = Path(__file__).resolve().parent
 
-DEV_MODELS = "llama3.1-70b,llama3.1-405b,openai-gpt-4.1"
-TEST_MODELS = "llama3.1-70b,openai-gpt-4.1"
+DEV_MODELS = "openai/gpt-oss-120b"
+TEST_MODELS = "openai/gpt-oss-120b"
 OPTIMIZER_SAMPLE_SIZES = (16,18,20)
 VARY_SAMPLE_DATASETS = {"dl20"}
 
 DEV_DATASETS = ("nba", "dl19")
 TEST_DATASETS = ("population", "dl20", "sembench_movie")
 
+# Per-dataset flags for trimmed data (budget-friendly runs).
+DATASET_EXTRA_FLAGS = {
+    "population": ["--population-limit", "40"],
+    "sembench_movie": ["--movie-top-k", "2", "--movie-review-limit", "50"],
+    "dl20": ["--dl20-query-limit", "4", "--hit-depth", "40"],
+}
+
 OPTIMIZER_RUNS = (
     {
-        "dataset": "dl20",
-        "model": "openai-gpt-4.1",
-        "budgets": "10,20,40,80",
-        "proxy_policies": "rrf,llm_judge",
-    },
-    {
-        "dataset": "dl20",
-        "model": "llama3.1-70b",
-        "budgets": "1,3,5,7",
+        "dataset": "population",
+        "model": "openai/gpt-oss-120b",
+        "budgets": "0.01",
         "proxy_policies": "rrf,llm_judge",
     },
     {
         "dataset": "sembench_movie",
-        "model": "openai-gpt-4.1",
-        "budgets": "3,6,12,24",
+        "model": "openai/gpt-oss-120b",
+        "budgets": "0.03,0.06,0.15,0.30",
         "proxy_policies": "rrf,llm_judge",
     },
     {
-        "dataset": "sembench_movie",
-        "model": "llama3.1-70b",
-        "budgets": "0.2,0.4,0.8,1.6",
-        "proxy_policies": "rrf,llm_judge",
-    },
-    {
-        "dataset": "population",
-        "model": "openai-gpt-4.1",
-        "budgets": "1",
-        "proxy_policies": "rrf,llm_judge",
-    },
-    {
-        "dataset": "population",
-        "model": "llama3.1-70b",
-        "budgets": "0.1",
+        "dataset": "dl20",
+        "model": "openai/gpt-oss-120b",
+        "budgets": "0.06,0.16,0.40,0.80",
         "proxy_policies": "rrf,llm_judge",
     },
 )
@@ -84,16 +72,15 @@ def _run_dev_experiments() -> None:
 def _run_test_experiments() -> None:
     _print_header("Test Experiments")
     for dataset in TEST_DATASETS:
-        _run(
-            [
-                sys.executable,
-                "test/run_experiment.py",
-                "--dataset",
-                dataset,
-                "--models",
-                TEST_MODELS,
-            ]
-        )
+        cmd = [
+            sys.executable,
+            "test/run_experiment.py",
+            "--dataset",
+            dataset,
+            "--models",
+            TEST_MODELS,
+        ] + DATASET_EXTRA_FLAGS.get(dataset, [])
+        _run(cmd)
 
 
 def _run_test_optimizers(run_vary_samples: bool = False) -> None:
@@ -109,11 +96,13 @@ def _run_test_optimizers(run_vary_samples: bool = False) -> None:
             spec["dataset"],
             "--models",
             spec["model"],
+            "--judge-model",
+            spec["model"],
             "--budgets",
             spec["budgets"],
             "--proxy-policies",
             spec["proxy_policies"],
-        ]
+        ] + DATASET_EXTRA_FLAGS.get(spec["dataset"], [])
 
         if spec["dataset"] in VARY_SAMPLE_DATASETS and run_vary_samples:
             # _run(base_cmd + ["--sample-size", "20"])
