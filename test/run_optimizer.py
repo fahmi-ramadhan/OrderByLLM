@@ -308,6 +308,8 @@ def _load_oracle_data(model: str, dataset: str):
 
 async def run_optimizer_dl20(args, client: AsyncOpenAI, pbar: tqdm | None = None) -> dict:
     first_stage, evaluator, qrels_by_qid = _build_dl20_data(_resolve(args.dl20_run_file), args.hit_depth)
+    if getattr(args, 'dl20_query_limit', None) is not None:
+        first_stage = first_stage[:args.dl20_query_limit]
 
     query_items = [(qid, query, ranking, len(ranking)) for qid, query, ranking in first_stage]
 
@@ -641,6 +643,8 @@ def main():
     parser.add_argument("--dl20-run-file",
                         default="data/run.msmarco-v1-passage.bm25-default.dl20.txt")
     parser.add_argument("--hit-depth", type=int, default=100)
+    parser.add_argument("--dl20-query-limit", type=int, default=None,
+                        help="Max number of DL20 queries to evaluate (default: all 54 with qrels).")
 
     # SembenchMovie-specific
     parser.add_argument("--movie-csv", default="data/movie/rotten_tomatoes_movie_reviews.csv")
