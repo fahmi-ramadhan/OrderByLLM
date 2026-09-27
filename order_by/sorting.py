@@ -668,8 +668,10 @@ async def external_pointwise_sort(
 
         text_chunks = [texts[i:i + m] for i in range(0, len(texts), m)]
         id_chunks = [ids[i:i + m] for i in range(0, len(texts), m)]
-        tasks = [sortfunc(text_chunk, client, prompt_template, modelname, output_type, s) for text_chunk in text_chunks]
-        results = await asyncio.gather(*tasks)
+        results = []
+        for text_chunk in text_chunks:
+            result = await sortfunc(text_chunk, client, prompt_template, modelname, output_type, s)
+            results.append(result)
 
         for id_chunk, text_chunk, (chunk_vals, api_calls, in_tokens, out_tokens) in zip(id_chunks, text_chunks, results):
             total_api_calls += api_calls
