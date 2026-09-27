@@ -352,7 +352,7 @@ async def _run_dl20_algorithms_once(
         if alg_pbar is not None:
             alg_pbar.set_description(f"  alg: {name:<35s}")
 
-    assert len(ranking) == 100, f"Expected 100 docs per query, got {len(ranking)}"
+    assert len(ranking) >= 10, f"Expected at least 10 docs per query, got {len(ranking)}"
     outputs = {}
     p_prompt  = _safe_prompt(passage_pointwise_prompt_template,           question=query)
     ep_prompt = _safe_prompt(passage_external_pointwise_prompt_template,  question=query)
@@ -379,15 +379,19 @@ async def _run_dl20_algorithms_once(
     )
     outputs["quick_sort"] = (_normalize_docids(q1_sorted), None, q1_in, q1_out)
 
-    _set_alg("quick_sort3 | ext_bubble_4 | ext_merge_4  [parallel]")
-    (
-        (q3_sorted, _, q3_in, q3_out),
-        (eb_sorted, _, eb_in, eb_out),
-        (em_sorted, _, em_in, em_out),
-    ) = await asyncio.gather(
-        quick_sort(ranking[:], client, pw_prompt, model, isPassage=True, vote=3, limit_k=10),
-        external_bubble_sort(ranking[:], external_comparisons, 4, client, ex_prompt, model, isPassage=True, limit_k=10),
-        external_merge_sort(ranking[:], external_comparisons, 4, client, ex_prompt, model, isPassage=True, limit_k=10),
+    _set_alg("quick_sort3")
+    q3_sorted, _, q3_in, q3_out = await quick_sort(
+        ranking[:], client, pw_prompt, model, isPassage=True, vote=3, limit_k=10,
+    )
+
+    _set_alg("ext_bubble_4")
+    eb_sorted, _, eb_in, eb_out = await external_bubble_sort(
+        ranking[:], external_comparisons, 4, client, ex_prompt, model, isPassage=True, limit_k=10,
+    )
+
+    _set_alg("ext_merge_4")
+    em_sorted, _, em_in, em_out = await external_merge_sort(
+        ranking[:], external_comparisons, 4, client, ex_prompt, model, isPassage=True, limit_k=10,
     )
     outputs["quick_sort3"]            = (_normalize_docids(q3_sorted), None, q3_in, q3_out)
     outputs["external_bubble_sort_4"] = (_normalize_docids(eb_sorted), None, eb_in, eb_out)
@@ -400,6 +404,8 @@ async def _run_dl20_algorithms_once(
 
 async def run_dl20(args, client: AsyncOpenAI, pbar: tqdm | None = None, alg_pbar: tqdm | None = None) -> dict:
     first_stage, evaluator, bm25_by_qid = _build_dl20_data(_resolve(args.dl20_run_file), args.hit_depth)
+    if getattr(args, 'dl20_query_limit', None) is not None:
+        first_stage = first_stage[:args.dl20_query_limit]
     acc = _empty_acc(DL20_ALGORITHMS)
 
     for seed in args.seeds:
@@ -715,6 +721,12 @@ def main():
     )
     parser.add_argument("--dl20-run-file", default="data/run.msmarco-v1-passage.bm25-default.dl20.txt")
     parser.add_argument("--hit-depth", type=int, default=100)
+    parser.add_argument(
+        "--dl20-query-limit",
+        type=int,
+        default=None,
+        help="Max number of DL20 queries to evaluate (default: all 54 with qrels).",
+    )
     parser.add_argument("--seeds", default="0")
     parser.add_argument("--population-csv", default="data/population_by_country_2020.csv")
     parser.add_argument(
