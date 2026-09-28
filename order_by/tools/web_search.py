@@ -84,11 +84,20 @@ def _fetch_page_info(entity: str) -> tuple[str, str] | None:
 def _fetch_infobox_field(title: str, field: str) -> str | None:
     """Extract a field value from a Wikipedia infobox using regex.
 
-    Fetches section 0 HTML via the MediaWiki parse API and searches for the
-    pattern ``{field}</th> <td>VALUE</td>``.
+    Fetches section 0 HTML via the MediaWiki parse API and tries two strategies:
 
-    If the cell contains a parenthesised metric value like "(2.01 m)", only
-    that metric part is returned for a clean, unambiguous context string.
+    1. Direct match — the field label sits in a ``<th>`` immediately followed by
+       a ``<td>`` with the value.
+    2. Section match — the field is a section header in a ``mergedtoprow`` ``<tr>``
+       and the values live in subsequent ``mergedrow`` ``<tr>`` sub-rows.  Iteration 
+       stops at the first ``<tr>`` whose class is *not* ``mergedrow`` (i.e. a new
+       ``mergedtoprow``, a ``mergedbottomrow``, or a classless ``<tr>``).
+
+    In both cases HTML tags and citation references (``[1]``, ``&#91;2&#93;``)
+    are stripped from the returned text.  For direct matches that contain a
+    parenthesised metric value like "(2.01 m)", only that metric part is
+    returned for a clean, unambiguous context string.
+
     Returns None if the field is not present in the infobox.
     """
     title_enc = urllib.parse.quote(title.replace(" ", "_"))
@@ -107,10 +116,34 @@ def _fetch_infobox_field(title: str, field: str) -> str | None:
     pat = rf'{re.escape(field)}</th>\s*<td[^>]*>(.*?)</td>'
     m = re.search(pat, html, re.DOTALL | re.IGNORECASE)
     if not m:
+        header_pat = rf'<tr\s+class="mergedtoprow">\s*<th[^>]*>.*?{re.escape(field)}.*?</th>.*?</tr>'
+        hm = re.search(header_pat, html, re.DOTALL | re.IGNORECASE)
+        if hm:
+            rest = html[hm.end():]
+            parts = []
+            for rm in re.finditer(r'<tr([^>]*)>', rest, re.IGNORECASE):
+                cls = re.search(r'class="([^"]+)"', rm.group(1))
+                if not cls or cls.group(1) != "mergedrow":
+                    break
+                chunk = rest[rm.start():]
+                td_m = re.search(r'<th[^>]*>(.*?)</th>\s*<td[^>]*>(.*?)</td>', chunk, re.DOTALL | re.IGNORECASE)
+                if not td_m:
+                    break
+                label = re.sub(r"<[^>]+>", "", td_m.group(1))
+                label = label.replace("&#160;", " ").replace("&nbsp;", " ")
+                label = re.split(r"&#91;|\[", label)[0].strip().lstrip("\u2022").strip()
+                value = re.sub(r"<[^>]+>", "", td_m.group(2))
+                value = value.replace("&#160;", " ").replace("&nbsp;", " ")
+                value = re.split(r"&#91;|\[", value)[0].strip()
+                if label and value:
+                    parts.append(f"{label}: {value}")
+            if parts:
+                return "; ".join(parts)
         return None
 
     clean = re.sub(r"<[^>]+>", "", m.group(1))
-    clean = clean.replace("&#160;", " ").replace("&nbsp;", " ").strip()
+    clean = clean.replace("&#160;", " ").replace("&nbsp;", " ")
+    clean = re.split(r"&#91;|\[", clean)[0].strip()
     if not clean:
         return None
 
@@ -194,14 +227,11 @@ async def web_search_pointwise_value(
 
     wiki_context = wiki_search(wiki_entity, wiki_field=wiki_field)
 
-    if wiki_context:
-        augmented_prompt = (
-            f"Use the following context.\n\n"
-            f"Context:\n{wiki_context}\n\n"
-            f"{prompt}"
-        )
-    else:
-        augmented_prompt = prompt
+    augmented_prompt = (
+        f"Use the following context.\n\n"
+        f"Context:\n{wiki_context or 'No data found.'}\n\n"
+        f"{prompt}"
+    )
 
     for attempt in range(1, 11):
         try:

@@ -83,7 +83,7 @@ SEMBENCH_MOVIE_ALGORITHMS = [
 EXTERNAL_POINTWISE_MEMORY_SIZES = (4,)
 
 # Wikipedia infobox field used for country population lookups.
-POPULATION_WIKI_FIELD = "population_estimate"
+POPULATION_WIKI_FIELD = "Population"
 
 
 def _now_iso() -> str:

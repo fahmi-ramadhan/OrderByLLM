@@ -39,7 +39,7 @@ from prompts.all_prompts import (
     population_pointwise_prompt_template,
 )
 
-POPULATION_WIKI_FIELD = "population_estimate"
+POPULATION_WIKI_FIELD = "Population"
 
 _POPULATION_FACTUAL_PROMPT = direct_inquiry_factual_knowledge_prompt.format_map(
     {"description": "Rank countries by their population in 2020", "query": "population of the country", "example": "```{example}```"}
