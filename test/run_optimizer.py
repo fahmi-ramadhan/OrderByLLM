@@ -275,7 +275,7 @@ def _load_oracle_data(model: str, dataset: str):
       alg_costs    : {qid: {alg: cost}}
     Returns (None, None, None) if the file is missing or unreadable.
     """
-    results_path = PROJECT_ROOT / "test" / dataset / f"results_{model}.json"
+    results_path = PROJECT_ROOT / "test" / dataset / f"results_{model.replace('/', '-')}.json"
     if not results_path.exists():
         tqdm.write(f"  [oracle] results file not found: {results_path}")
         return None, None, None
@@ -618,8 +618,8 @@ def main():
     parser.add_argument("--dataset", choices=["population", "dl20", "sembench_movie"], required=True)
     parser.add_argument("--models", required=True,
                         help="Comma-separated list of model names. Example: --models llama3.1-70b,openai-gpt-4.1")
-    parser.add_argument("--judge-model", default="openai-gpt-4.1",
-                        help="Model used as the LLM judge for proxy ground-truth (default: openai-gpt-4.1).")
+    parser.add_argument("--judge-model", default="openai/gpt-oss-120b",
+                        help="Model used as the LLM judge for proxy ground-truth (default: openai/gpt-oss-120b).")
     parser.add_argument("--budgets", default="0.10",
                         help="Comma-separated list of total dollar budgets to sweep over (default: 0.10). "
                              "Example: --budgets 0.01,0.02,0.05,0.10,0.20")
