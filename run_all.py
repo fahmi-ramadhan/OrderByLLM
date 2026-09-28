@@ -9,7 +9,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent
 
 DEV_MODELS = "openai/gpt-oss-120b"
-TEST_MODELS = "openai/gpt-oss-120b"
+TEST_MODELS = "openai/gpt-oss-120b, openai/gpt-oss-20b"
 OPTIMIZER_SAMPLE_SIZES = (16,18,20)
 VARY_SAMPLE_DATASETS = {"dl20"}
 
@@ -31,15 +31,33 @@ OPTIMIZER_RUNS = (
         "proxy_policies": "rrf,llm_judge",
     },
     {
+        "dataset": "population",
+        "model": "openai/gpt-oss-20b",
+        "budgets": "0.005",
+        "proxy_policies": "rrf,llm_judge",
+    },
+    {
         "dataset": "sembench_movie",
         "model": "openai/gpt-oss-120b",
         "budgets": "0.03,0.06,0.15,0.30",
         "proxy_policies": "rrf,llm_judge",
     },
     {
+        "dataset": "sembench_movie",
+        "model": "openai/gpt-oss-20b",
+        "budgets": "0.01,0.03,0.06,0.15",
+        "proxy_policies": "rrf,llm_judge",
+    },
+    {
         "dataset": "dl20",
         "model": "openai/gpt-oss-120b",
         "budgets": "0.06,0.16,0.40,0.80",
+        "proxy_policies": "rrf,llm_judge",
+    },
+    {
+        "dataset": "dl20",
+        "model": "openai/gpt-oss-20b",
+        "budgets": "0.03,0.10,0.30,0.60",
         "proxy_policies": "rrf,llm_judge",
     },
 )
@@ -95,8 +113,6 @@ def _run_test_optimizers(run_vary_samples: bool = False) -> None:
             "--dataset",
             spec["dataset"],
             "--models",
-            spec["model"],
-            "--judge-model",
             spec["model"],
             "--budgets",
             spec["budgets"],
