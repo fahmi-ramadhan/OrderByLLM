@@ -1,11 +1,11 @@
 {
   "dataset": "sembench_movie",
-  "generated_at": "2026-09-28T13:05:12.982901+00:00",
+  "generated_at": "2026-09-28T13:05:13.046543+00:00",
   "settings": {
     "csv": "data/movie/rotten_tomatoes_movie_reviews.csv",
     "top_k_movies": 2,
     "review_limit": 50,
-    "model": "openai/gpt-oss-120b",
+    "model": "openai/gpt-oss-20b",
     "seeds": [
       0
     ],
@@ -45,134 +45,134 @@
     {
       "algorithm": "pointwise",
       "seed_scores": {
-        "0": 0.9248510731851407
+        "0": 0.9177738421972852
       },
       "per_movie_scores": {
         "0": {
-          "parasite_2019": 0.9652666657304015,
-          "ant_man_and_the_wasp_quantumania": 0.88443548063988
+          "parasite_2019": 0.9647399786793142,
+          "ant_man_and_the_wasp_quantumania": 0.8708077057152562
         }
       },
       "per_movie_costs": {
         "0": {
-          "parasite_2019": 0.010863,
-          "ant_man_and_the_wasp_quantumania": 0.011361
+          "parasite_2019": 0.004328,
+          "ant_man_and_the_wasp_quantumania": 0.004683
         }
       },
-      "score_mean": 0.9248510731851407,
+      "score_mean": 0.9177738421972852,
       "score_std": 0.0,
-      "price": 0.022224,
-      "tokens": 84173
+      "price": 0.00901,
+      "tokens": 60685
     },
     {
       "algorithm": "quick_sort",
       "seed_scores": {
-        "0": 0.9341474045009364
+        "0": 0.9499622388748943
       },
       "per_movie_scores": {
         "0": {
-          "parasite_2019": 0.9795165752481407,
-          "ant_man_and_the_wasp_quantumania": 0.888778233753732
+          "parasite_2019": 0.9690851320843202,
+          "ant_man_and_the_wasp_quantumania": 0.9308393456654684
         }
       },
       "per_movie_costs": {
         "0": {
-          "parasite_2019": 0.043688,
-          "ant_man_and_the_wasp_quantumania": 0.02492
+          "parasite_2019": 0.0205,
+          "ant_man_and_the_wasp_quantumania": 0.016086
         }
       },
-      "score_mean": 0.9341474045009364,
+      "score_mean": 0.9499622388748943,
       "score_std": 0.0,
-      "price": 0.068609,
-      "tokens": 185434
+      "price": 0.036586,
+      "tokens": 204768
     },
     {
       "algorithm": "quick_sort3",
       "seed_scores": {
-        "0": 0.9319437005257362
+        "0": 0.9490134489051725
       },
       "per_movie_scores": {
         "0": {
-          "parasite_2019": 0.9751091672977403,
-          "ant_man_and_the_wasp_quantumania": 0.888778233753732
+          "parasite_2019": 0.9704341018169095,
+          "ant_man_and_the_wasp_quantumania": 0.9275927959934354
         }
       },
       "per_movie_costs": {
         "0": {
-          "parasite_2019": 0.10107,
-          "ant_man_and_the_wasp_quantumania": 0.060976
+          "parasite_2019": 0.054846,
+          "ant_man_and_the_wasp_quantumania": 0.033745
         }
       },
-      "score_mean": 0.9319437005257362,
+      "score_mean": 0.9490134489051725,
       "score_std": 0.0,
-      "price": 0.162046,
-      "tokens": 441497
+      "price": 0.088591,
+      "tokens": 505349
     },
     {
       "algorithm": "external_pointwise_4",
       "seed_scores": {
-        "0": 0.924066515329883
+        "0": 0.9263042686725613
       },
       "per_movie_scores": {
         "0": {
-          "parasite_2019": 0.9779908233701919,
-          "ant_man_and_the_wasp_quantumania": 0.8701422072895741
+          "parasite_2019": 0.9641045789828364,
+          "ant_man_and_the_wasp_quantumania": 0.8885039583622864
         }
       },
       "per_movie_costs": {
         "0": {
-          "parasite_2019": 0.004621,
-          "ant_man_and_the_wasp_quantumania": 0.005947
+          "parasite_2019": 0.002221,
+          "ant_man_and_the_wasp_quantumania": 0.002464
         }
       },
-      "score_mean": 0.924066515329883,
+      "score_mean": 0.9263042686725613,
       "score_std": 0.0,
-      "price": 0.010568,
-      "tokens": 33013
+      "price": 0.004684,
+      "tokens": 26173
     },
     {
       "algorithm": "external_merge_sort_4",
       "seed_scores": {
-        "0": 0.9267424989246424
+        "0": 0.9246481894078913
       },
       "per_movie_scores": {
         "0": {
-          "parasite_2019": 0.9612453051864527,
-          "ant_man_and_the_wasp_quantumania": 0.8922396926628323
+          "parasite_2019": 0.963601144294905,
+          "ant_man_and_the_wasp_quantumania": 0.8856952345208777
         }
       },
       "per_movie_costs": {
         "0": {
-          "parasite_2019": 0.022342,
-          "ant_man_and_the_wasp_quantumania": 0.023881
+          "parasite_2019": 0.013999,
+          "ant_man_and_the_wasp_quantumania": 0.013962
         }
       },
-      "score_mean": 0.9267424989246424,
+      "score_mean": 0.9246481894078913,
       "score_std": 0.0,
-      "price": 0.046224,
-      "tokens": 127867
+      "price": 0.027962,
+      "tokens": 143677
     },
     {
       "algorithm": "external_bubble_sort_4",
       "seed_scores": {
-        "0": 0.9204908873136535
+        "0": 0.931586860856539
       },
       "per_movie_scores": {
         "0": {
-          "parasite_2019": 0.9535875381996176,
-          "ant_man_and_the_wasp_quantumania": 0.8873942364276893
+          "parasite_2019": 0.9351522801593507,
+          "ant_man_and_the_wasp_quantumania": 0.9280214415537273
         }
       },
       "per_movie_costs": {
         "0": {
-          "parasite_2019": 0.046301,
-          "ant_man_and_the_wasp_quantumania": 0.045827
+          "parasite_2019": 0.029571,
+          "ant_man_and_the_wasp_quantumania": 0.028177
         }
       },
-      "score_mean": 0.9204908873136535,
+      "score_mean": 0.931586860856539,
       "score_std": 0.0,
-      "price": 0.092128,
-      "tokens": 231109
+      "price": 0.057748,
+      "tokens": 271655
     }
   ],
   "metric_name": "ndcg@10"

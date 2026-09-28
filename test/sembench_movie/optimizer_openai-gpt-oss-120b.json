@@ -18,7 +18,7 @@
       "rrf": {
         "0.03": {
           "dataset": "sembench_movie",
-          "generated_at": "2026-09-27T16:10:39.747920+00:00",
+          "generated_at": "2026-09-28T13:05:27.944280+00:00",
           "settings": {
             "csv": "data/movie/rotten_tomatoes_movie_reviews.csv",
             "top_k_movies": 2,
@@ -54,7 +54,7 @@
         },
         "0.06": {
           "dataset": "sembench_movie",
-          "generated_at": "2026-09-27T16:10:47.322027+00:00",
+          "generated_at": "2026-09-28T13:05:35.483049+00:00",
           "settings": {
             "csv": "data/movie/rotten_tomatoes_movie_reviews.csv",
             "top_k_movies": 2,
@@ -91,7 +91,7 @@
         },
         "0.15": {
           "dataset": "sembench_movie",
-          "generated_at": "2026-09-27T16:10:54.936246+00:00",
+          "generated_at": "2026-09-28T13:05:42.528105+00:00",
           "settings": {
             "csv": "data/movie/rotten_tomatoes_movie_reviews.csv",
             "top_k_movies": 2,
@@ -128,7 +128,7 @@
         },
         "0.3": {
           "dataset": "sembench_movie",
-          "generated_at": "2026-09-27T16:11:02.882487+00:00",
+          "generated_at": "2026-09-28T13:05:49.973268+00:00",
           "settings": {
             "csv": "data/movie/rotten_tomatoes_movie_reviews.csv",
             "top_k_movies": 2,
@@ -167,7 +167,7 @@
       "llm_judge": {
         "0.03": {
           "dataset": "sembench_movie",
-          "generated_at": "2026-09-27T16:11:10.412393+00:00",
+          "generated_at": "2026-09-28T13:05:58.052978+00:00",
           "settings": {
             "csv": "data/movie/rotten_tomatoes_movie_reviews.csv",
             "top_k_movies": 2,
@@ -203,7 +203,7 @@
         },
         "0.06": {
           "dataset": "sembench_movie",
-          "generated_at": "2026-09-27T16:11:18.218547+00:00",
+          "generated_at": "2026-09-28T13:06:05.946901+00:00",
           "settings": {
             "csv": "data/movie/rotten_tomatoes_movie_reviews.csv",
             "top_k_movies": 2,
@@ -239,7 +239,7 @@
         },
         "0.15": {
           "dataset": "sembench_movie",
-          "generated_at": "2026-09-27T16:11:25.794124+00:00",
+          "generated_at": "2026-09-28T13:06:13.195936+00:00",
           "settings": {
             "csv": "data/movie/rotten_tomatoes_movie_reviews.csv",
             "top_k_movies": 2,
@@ -276,7 +276,7 @@
         },
         "0.3": {
           "dataset": "sembench_movie",
-          "generated_at": "2026-09-27T16:11:33.068502+00:00",
+          "generated_at": "2026-09-28T13:06:20.039613+00:00",
           "settings": {
             "csv": "data/movie/rotten_tomatoes_movie_reviews.csv",
             "top_k_movies": 2,

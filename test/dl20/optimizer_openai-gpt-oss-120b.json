@@ -18,7 +18,7 @@
       "rrf": {
         "0.06": {
           "dataset": "dl20",
-          "generated_at": "2026-09-27T16:11:35.409626+00:00",
+          "generated_at": "2026-09-28T13:07:25.676074+00:00",
           "settings": {
             "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
             "hit_depth": 40,
@@ -27,12 +27,12 @@
             "sample_size": 20,
             "proxy_policy": "rrf"
           },
-          "score_mean": 0.833,
+          "score_mean": 0.83,
           "score_std": 0.0,
           "per_query_scores": {
             "1030303": 0.9918798531332953,
             "1037496": 0.9494126029739881,
-            "1043135": 0.8722345473219011,
+            "1043135": 0.8615065471949294,
             "1051399": 0.5191157673508552
           },
           "per_query_chosen_alg": {
@@ -48,14 +48,14 @@
           "total_ranking_budget": 0.06,
           "per_query_budget": 0.015,
           "total_optimization_cost": 0.09784899999999999,
-          "total_ranking_cost": 0.04484100000000002,
+          "total_ranking_cost": 0.044893000000000016,
           "in_tokens": 282972,
-          "out_tokens": 167074,
+          "out_tokens": 167161,
           "metric_name": "ndcg@10"
         },
         "0.16": {
           "dataset": "dl20",
-          "generated_at": "2026-09-27T16:11:36.010836+00:00",
+          "generated_at": "2026-09-28T13:07:26.339939+00:00",
           "settings": {
             "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
             "hit_depth": 40,
@@ -64,12 +64,12 @@
             "sample_size": 20,
             "proxy_policy": "rrf"
           },
-          "score_mean": 0.834,
+          "score_mean": 0.832,
           "score_std": 0.0,
           "per_query_scores": {
             "1030303": 0.9918798531332953,
             "1037496": 0.9543384299005626,
-            "1043135": 0.8722345473219011,
+            "1043135": 0.8615065471949294,
             "1051399": 0.5191157673508552
           },
           "per_query_chosen_alg": {
@@ -87,14 +87,14 @@
           "total_ranking_budget": 0.16,
           "per_query_budget": 0.04,
           "total_optimization_cost": 0.12436599999999999,
-          "total_ranking_cost": 0.105703,
+          "total_ranking_cost": 0.105755,
           "in_tokens": 425549,
-          "out_tokens": 277061,
+          "out_tokens": 277148,
           "metric_name": "ndcg@10"
         },
         "0.4": {
           "dataset": "dl20",
-          "generated_at": "2026-09-27T16:11:36.723776+00:00",
+          "generated_at": "2026-09-28T13:07:27.160454+00:00",
           "settings": {
             "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
             "hit_depth": 40,
@@ -103,12 +103,12 @@
             "sample_size": 20,
             "proxy_policy": "rrf"
           },
-          "score_mean": 0.835,
+          "score_mean": 0.833,
           "score_std": 0.0,
           "per_query_scores": {
             "1030303": 0.9952214542912304,
             "1037496": 0.9543384299005626,
-            "1043135": 0.8722345473219011,
+            "1043135": 0.8615065471949294,
             "1051399": 0.5191157673508552
           },
           "per_query_chosen_alg": {
@@ -126,14 +126,14 @@
           "total_ranking_budget": 0.4,
           "per_query_budget": 0.1,
           "total_optimization_cost": 0.172118,
-          "total_ranking_cost": 0.19252400000000003,
+          "total_ranking_cost": 0.192577,
           "in_tokens": 659917,
-          "out_tokens": 442758,
+          "out_tokens": 442845,
           "metric_name": "ndcg@10"
         },
         "0.8": {
           "dataset": "dl20",
-          "generated_at": "2026-09-27T16:11:37.467432+00:00",
+          "generated_at": "2026-09-28T13:07:27.995878+00:00",
           "settings": {
             "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
             "hit_depth": 40,
@@ -142,12 +142,12 @@
             "sample_size": 20,
             "proxy_policy": "rrf"
           },
-          "score_mean": 0.845,
+          "score_mean": 0.843,
           "score_std": 0.0,
           "per_query_scores": {
             "1030303": 0.9918798531332953,
             "1037496": 0.9534606181487503,
-            "1043135": 0.8722345473219011,
+            "1043135": 0.8615065471949294,
             "1051399": 0.5636867997484418
           },
           "per_query_chosen_alg": {
@@ -165,16 +165,16 @@
           "total_ranking_budget": 0.8,
           "per_query_budget": 0.2,
           "total_optimization_cost": 0.210724,
-          "total_ranking_cost": 0.34813700000000003,
+          "total_ranking_cost": 0.34818899999999997,
           "in_tokens": 992245,
-          "out_tokens": 683374,
+          "out_tokens": 683461,
           "metric_name": "ndcg@10"
         }
       },
       "llm_judge": {
         "0.06": {
           "dataset": "dl20",
-          "generated_at": "2026-09-27T16:11:38.021176+00:00",
+          "generated_at": "2026-09-28T13:07:28.617478+00:00",
           "settings": {
             "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
             "hit_depth": 40,
@@ -183,12 +183,12 @@
             "sample_size": 20,
             "proxy_policy": "llm_judge"
           },
-          "score_mean": 0.833,
+          "score_mean": 0.83,
           "score_std": 0.0,
           "per_query_scores": {
             "1030303": 0.9918798531332953,
             "1037496": 0.9494126029739881,
-            "1043135": 0.8722345473219011,
+            "1043135": 0.8615065471949294,
             "1051399": 0.5191157673508552
           },
           "per_query_chosen_alg": {
@@ -204,14 +204,14 @@
           "total_ranking_budget": 0.06,
           "per_query_budget": 0.015,
           "total_optimization_cost": 0.09784899999999999,
-          "total_ranking_cost": 0.04484100000000002,
+          "total_ranking_cost": 0.044893000000000016,
           "in_tokens": 282972,
-          "out_tokens": 167074,
+          "out_tokens": 167161,
           "metric_name": "ndcg@10"
         },
         "0.16": {
           "dataset": "dl20",
-          "generated_at": "2026-09-27T16:11:38.585378+00:00",
+          "generated_at": "2026-09-28T13:07:29.244426+00:00",
           "settings": {
             "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
             "hit_depth": 40,
@@ -220,12 +220,12 @@
             "sample_size": 20,
             "proxy_policy": "llm_judge"
           },
-          "score_mean": 0.833,
+          "score_mean": 0.831,
           "score_std": 0.0,
           "per_query_scores": {
             "1030303": 0.9876624199868951,
             "1037496": 0.9101689475976367,
-            "1043135": 0.8722345473219011,
+            "1043135": 0.8615065471949294,
             "1051399": 0.5636867997484418
           },
           "per_query_chosen_alg": {
@@ -241,14 +241,14 @@
           "total_ranking_budget": 0.16,
           "per_query_budget": 0.04,
           "total_optimization_cost": 0.10851699999999999,
-          "total_ranking_cost": 0.083167,
+          "total_ranking_cost": 0.083219,
           "in_tokens": 356678,
-          "out_tokens": 230304,
+          "out_tokens": 230391,
           "metric_name": "ndcg@10"
         },
         "0.4": {
           "dataset": "dl20",
-          "generated_at": "2026-09-27T16:11:39.172817+00:00",
+          "generated_at": "2026-09-28T13:07:29.912117+00:00",
           "settings": {
             "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
             "hit_depth": 40,
@@ -257,12 +257,12 @@
             "sample_size": 20,
             "proxy_policy": "llm_judge"
           },
-          "score_mean": 0.828,
+          "score_mean": 0.826,
           "score_std": 0.0,
           "per_query_scores": {
             "1030303": 0.9952214542912304,
             "1037496": 0.9123576594036434,
-            "1043135": 0.8722345473219011,
+            "1043135": 0.8615065471949294,
             "1051399": 0.5341442836238036
           },
           "per_query_chosen_alg": {
@@ -279,14 +279,14 @@
           "total_ranking_budget": 0.4,
           "per_query_budget": 0.1,
           "total_optimization_cost": 0.12975199999999998,
-          "total_ranking_cost": 0.08347100000000002,
+          "total_ranking_cost": 0.08352300000000001,
           "in_tokens": 397778,
-          "out_tokens": 255927,
+          "out_tokens": 256014,
           "metric_name": "ndcg@10"
         },
         "0.8": {
           "dataset": "dl20",
-          "generated_at": "2026-09-27T16:11:39.796801+00:00",
+          "generated_at": "2026-09-28T13:07:30.587349+00:00",
           "settings": {
             "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
             "hit_depth": 40,
@@ -295,12 +295,12 @@
             "sample_size": 20,
             "proxy_policy": "llm_judge"
           },
-          "score_mean": 0.827,
+          "score_mean": 0.824,
           "score_std": 0.0,
           "per_query_scores": {
             "1030303": 0.9876624199868951,
             "1037496": 0.9123576594036434,
-            "1043135": 0.8722345473219011,
+            "1043135": 0.8615065471949294,
             "1051399": 0.5341442836238036
           },
           "per_query_chosen_alg": {
@@ -317,9 +317,9 @@
           "total_ranking_budget": 0.8,
           "per_query_budget": 0.2,
           "total_optimization_cost": 0.168358,
-          "total_ranking_cost": 0.10209200000000002,
+          "total_ranking_cost": 0.10214499999999999,
           "in_tokens": 500343,
-          "out_tokens": 325665,
+          "out_tokens": 325752,
           "metric_name": "ndcg@10"
         }
       }

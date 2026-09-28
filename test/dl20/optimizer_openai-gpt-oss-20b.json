@@ -1,0 +1,312 @@
+{
+  "dataset": "dl20",
+  "models": [
+    "openai/gpt-oss-20b"
+  ],
+  "budgets": [
+    0.03,
+    0.1,
+    0.3,
+    0.6
+  ],
+  "proxy_policies": [
+    "rrf",
+    "llm_judge"
+  ],
+  "results_by_model": {
+    "openai/gpt-oss-20b": {
+      "rrf": {
+        "0.03": {
+          "dataset": "dl20",
+          "generated_at": "2026-09-28T13:07:32.739511+00:00",
+          "settings": {
+            "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
+            "hit_depth": 40,
+            "model": "openai/gpt-oss-20b",
+            "total_ranking_budget": 0.03,
+            "sample_size": 20,
+            "proxy_policy": "rrf"
+          },
+          "score_mean": 0.803,
+          "score_std": 0.0,
+          "per_query_scores": {
+            "1030303": 0.9777141496367301,
+            "1037496": 0.8988194389995559,
+            "1043135": 0.7928241113914659,
+            "1051399": 0.543514450970661
+          },
+          "per_query_chosen_alg": {
+            "1030303": "ddg_point",
+            "1037496": "ddg_point",
+            "1043135": "ddg_point",
+            "1051399": "ddg_point"
+          },
+          "chosen_alg_counts": {
+            "ddg_point": 4
+          },
+          "total_ranking_budget": 0.03,
+          "per_query_budget": 0.0075,
+          "total_optimization_cost": 0.0,
+          "total_ranking_cost": 0.020115,
+          "in_tokens": 133790,
+          "out_tokens": 33602,
+          "metric_name": "ndcg@10"
+        },
+        "0.1": {
+          "dataset": "dl20",
+          "generated_at": "2026-09-28T13:07:33.237013+00:00",
+          "settings": {
+            "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
+            "hit_depth": 40,
+            "model": "openai/gpt-oss-20b",
+            "total_ranking_budget": 0.1,
+            "sample_size": 20,
+            "proxy_policy": "rrf"
+          },
+          "score_mean": 0.803,
+          "score_std": 0.0,
+          "per_query_scores": {
+            "1030303": 0.9777141496367301,
+            "1037496": 0.8988194389995559,
+            "1043135": 0.7928241113914659,
+            "1051399": 0.543514450970661
+          },
+          "per_query_chosen_alg": {
+            "1030303": "ddg_point",
+            "1037496": "ddg_point",
+            "1043135": "ddg_point",
+            "1051399": "ddg_point"
+          },
+          "chosen_alg_counts": {
+            "ddg_point": 4
+          },
+          "total_ranking_budget": 0.1,
+          "per_query_budget": 0.025,
+          "total_optimization_cost": 0.0,
+          "total_ranking_cost": 0.020115,
+          "in_tokens": 133790,
+          "out_tokens": 33602,
+          "metric_name": "ndcg@10"
+        },
+        "0.3": {
+          "dataset": "dl20",
+          "generated_at": "2026-09-28T13:07:33.758985+00:00",
+          "settings": {
+            "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
+            "hit_depth": 40,
+            "model": "openai/gpt-oss-20b",
+            "total_ranking_budget": 0.3,
+            "sample_size": 20,
+            "proxy_policy": "rrf"
+          },
+          "score_mean": 0.803,
+          "score_std": 0.0,
+          "per_query_scores": {
+            "1030303": 0.9777141496367301,
+            "1037496": 0.8988194389995559,
+            "1043135": 0.7928241113914659,
+            "1051399": 0.543514450970661
+          },
+          "per_query_chosen_alg": {
+            "1030303": "ddg_point",
+            "1037496": "ddg_point",
+            "1043135": "ddg_point",
+            "1051399": "ddg_point"
+          },
+          "chosen_alg_counts": {
+            "ddg_point": 4
+          },
+          "total_ranking_budget": 0.3,
+          "per_query_budget": 0.075,
+          "total_optimization_cost": 0.0,
+          "total_ranking_cost": 0.020115,
+          "in_tokens": 133790,
+          "out_tokens": 33602,
+          "metric_name": "ndcg@10"
+        },
+        "0.6": {
+          "dataset": "dl20",
+          "generated_at": "2026-09-28T13:07:34.331905+00:00",
+          "settings": {
+            "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
+            "hit_depth": 40,
+            "model": "openai/gpt-oss-20b",
+            "total_ranking_budget": 0.6,
+            "sample_size": 20,
+            "proxy_policy": "rrf"
+          },
+          "score_mean": 0.803,
+          "score_std": 0.0,
+          "per_query_scores": {
+            "1030303": 0.9777141496367301,
+            "1037496": 0.8988194389995559,
+            "1043135": 0.7928241113914659,
+            "1051399": 0.543514450970661
+          },
+          "per_query_chosen_alg": {
+            "1030303": "ddg_point",
+            "1037496": "ddg_point",
+            "1043135": "ddg_point",
+            "1051399": "ddg_point"
+          },
+          "chosen_alg_counts": {
+            "ddg_point": 4
+          },
+          "total_ranking_budget": 0.6,
+          "per_query_budget": 0.15,
+          "total_optimization_cost": 0.0,
+          "total_ranking_cost": 0.020115,
+          "in_tokens": 133790,
+          "out_tokens": 33602,
+          "metric_name": "ndcg@10"
+        }
+      },
+      "llm_judge": {
+        "0.03": {
+          "dataset": "dl20",
+          "generated_at": "2026-09-28T13:07:34.834432+00:00",
+          "settings": {
+            "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
+            "hit_depth": 40,
+            "model": "openai/gpt-oss-20b",
+            "total_ranking_budget": 0.03,
+            "sample_size": 20,
+            "proxy_policy": "llm_judge"
+          },
+          "score_mean": 0.803,
+          "score_std": 0.0,
+          "per_query_scores": {
+            "1030303": 0.9777141496367301,
+            "1037496": 0.8988194389995559,
+            "1043135": 0.7928241113914659,
+            "1051399": 0.543514450970661
+          },
+          "per_query_chosen_alg": {
+            "1030303": "ddg_point",
+            "1037496": "ddg_point",
+            "1043135": "ddg_point",
+            "1051399": "ddg_point"
+          },
+          "chosen_alg_counts": {
+            "ddg_point": 4
+          },
+          "total_ranking_budget": 0.03,
+          "per_query_budget": 0.0075,
+          "total_optimization_cost": 0.0,
+          "total_ranking_cost": 0.020115,
+          "in_tokens": 133790,
+          "out_tokens": 33602,
+          "metric_name": "ndcg@10"
+        },
+        "0.1": {
+          "dataset": "dl20",
+          "generated_at": "2026-09-28T13:07:35.351726+00:00",
+          "settings": {
+            "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
+            "hit_depth": 40,
+            "model": "openai/gpt-oss-20b",
+            "total_ranking_budget": 0.1,
+            "sample_size": 20,
+            "proxy_policy": "llm_judge"
+          },
+          "score_mean": 0.803,
+          "score_std": 0.0,
+          "per_query_scores": {
+            "1030303": 0.9777141496367301,
+            "1037496": 0.8988194389995559,
+            "1043135": 0.7928241113914659,
+            "1051399": 0.543514450970661
+          },
+          "per_query_chosen_alg": {
+            "1030303": "ddg_point",
+            "1037496": "ddg_point",
+            "1043135": "ddg_point",
+            "1051399": "ddg_point"
+          },
+          "chosen_alg_counts": {
+            "ddg_point": 4
+          },
+          "total_ranking_budget": 0.1,
+          "per_query_budget": 0.025,
+          "total_optimization_cost": 0.0,
+          "total_ranking_cost": 0.020115,
+          "in_tokens": 133790,
+          "out_tokens": 33602,
+          "metric_name": "ndcg@10"
+        },
+        "0.3": {
+          "dataset": "dl20",
+          "generated_at": "2026-09-28T13:07:35.850261+00:00",
+          "settings": {
+            "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
+            "hit_depth": 40,
+            "model": "openai/gpt-oss-20b",
+            "total_ranking_budget": 0.3,
+            "sample_size": 20,
+            "proxy_policy": "llm_judge"
+          },
+          "score_mean": 0.803,
+          "score_std": 0.0,
+          "per_query_scores": {
+            "1030303": 0.9777141496367301,
+            "1037496": 0.8988194389995559,
+            "1043135": 0.7928241113914659,
+            "1051399": 0.543514450970661
+          },
+          "per_query_chosen_alg": {
+            "1030303": "ddg_point",
+            "1037496": "ddg_point",
+            "1043135": "ddg_point",
+            "1051399": "ddg_point"
+          },
+          "chosen_alg_counts": {
+            "ddg_point": 4
+          },
+          "total_ranking_budget": 0.3,
+          "per_query_budget": 0.075,
+          "total_optimization_cost": 0.0,
+          "total_ranking_cost": 0.020115,
+          "in_tokens": 133790,
+          "out_tokens": 33602,
+          "metric_name": "ndcg@10"
+        },
+        "0.6": {
+          "dataset": "dl20",
+          "generated_at": "2026-09-28T13:07:36.347330+00:00",
+          "settings": {
+            "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
+            "hit_depth": 40,
+            "model": "openai/gpt-oss-20b",
+            "total_ranking_budget": 0.6,
+            "sample_size": 20,
+            "proxy_policy": "llm_judge"
+          },
+          "score_mean": 0.803,
+          "score_std": 0.0,
+          "per_query_scores": {
+            "1030303": 0.9777141496367301,
+            "1037496": 0.8988194389995559,
+            "1043135": 0.7928241113914659,
+            "1051399": 0.543514450970661
+          },
+          "per_query_chosen_alg": {
+            "1030303": "ddg_point",
+            "1037496": "ddg_point",
+            "1043135": "ddg_point",
+            "1051399": "ddg_point"
+          },
+          "chosen_alg_counts": {
+            "ddg_point": 4
+          },
+          "total_ranking_budget": 0.6,
+          "per_query_budget": 0.15,
+          "total_optimization_cost": 0.0,
+          "total_ranking_cost": 0.020115,
+          "in_tokens": 133790,
+          "out_tokens": 33602,
+          "metric_name": "ndcg@10"
+        }
+      }
+    }
+  }
+}

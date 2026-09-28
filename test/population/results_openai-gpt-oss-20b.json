@@ -1,9 +1,9 @@
 {
   "dataset": "population",
-  "generated_at": "2026-09-28T13:04:50.911723+00:00",
+  "generated_at": "2026-09-28T13:04:50.908010+00:00",
   "settings": {
     "csv": "data/population_by_country_2020.csv",
-    "model": "openai/gpt-oss-120b",
+    "model": "openai/gpt-oss-20b",
     "seeds": [
       0
     ],
@@ -22,22 +22,22 @@
     {
       "algorithm": "pointwise",
       "seed_scores": {
-        "0": 0.9974358974358974
+        "0": 0.876923076923077
       },
-      "score_mean": 0.9974358974358974,
+      "score_mean": 0.876923076923077,
       "score_std": 0.0,
-      "price": 0.009547,
-      "tokens": 23177
+      "price": 0.005842,
+      "tokens": 30252
     },
     {
       "algorithm": "pointwise_with_search",
       "seed_scores": {
-        "0": 0.9974358974358974
+        "0": 0.9897435897435898
       },
-      "score_mean": 0.9974358974358974,
+      "score_mean": 0.9897435897435898,
       "score_std": 0.0,
-      "price": 0.008266,
-      "tokens": 22740
+      "price": 0.003215,
+      "tokens": 19681
     },
     {
       "algorithm": "external_pointwise_4",
@@ -46,48 +46,48 @@
       },
       "score_mean": 0.9897435897435898,
       "score_std": 0.0,
-      "price": 0.003569,
-      "tokens": 11611
+      "price": 0.001153,
+      "tokens": 5910
     },
     {
       "algorithm": "external_pointwise_4_with_search",
       "seed_scores": {
-        "0": 0.9846153846153847
+        "0": 0.9820512820512821
       },
-      "score_mean": 0.9846153846153847,
+      "score_mean": 0.9820512820512821,
       "score_std": 0.0,
-      "price": 0.003582,
-      "tokens": 8997
+      "price": 0.001642,
+      "tokens": 8502
     },
     {
       "algorithm": "quick_sort",
       "seed_scores": {
-        "0": 0.9871794871794873
+        "0": 0.9923076923076923
       },
-      "score_mean": 0.9871794871794873,
+      "score_mean": 0.9923076923076923,
       "score_std": 0.0,
-      "price": 0.035746,
-      "tokens": 106118
+      "price": 0.017112,
+      "tokens": 105052
     },
     {
       "algorithm": "quick_sort3",
       "seed_scores": {
-        "0": 0.9871794871794873
+        "0": 0.9923076923076923
       },
-      "score_mean": 0.9871794871794873,
+      "score_mean": 0.9923076923076923,
       "score_std": 0.0,
-      "price": 0.074533,
-      "tokens": 230105
+      "price": 0.033837,
+      "tokens": 206769
     },
     {
       "algorithm": "external_bubble_sort_4",
       "seed_scores": {
-        "0": 0.9871794871794873
+        "0": 0.9923076923076923
       },
-      "score_mean": 0.9871794871794873,
+      "score_mean": 0.9923076923076923,
       "score_std": 0.0,
-      "price": 0.053026,
-      "tokens": 136705
+      "price": 0.028627,
+      "tokens": 143784
     },
     {
       "algorithm": "external_merge_sort_4",
@@ -96,8 +96,8 @@
       },
       "score_mean": 0.9897435897435898,
       "score_std": 0.0,
-      "price": 0.015971,
-      "tokens": 42304
+      "price": 0.007727,
+      "tokens": 41419
     }
   ],
   "metric_name": "kendalltau"
