@@ -217,7 +217,8 @@ def _parse_infobox_field(html: str, field: str) -> str | None:
     pat = rf'{re.escape(field)}</th>\s*<td[^>]*>(.*?)</td>'
     m = re.search(pat, html, re.DOTALL | re.IGNORECASE)
     if not m:
-        header_pat = rf'<tr\s+class="mergedtoprow">\s*<th[^>]*>.*?{re.escape(field)}.*?</th>.*?</tr>'
+        NB = r'((?:(?!</tr>)[\s\S])*?)'
+        header_pat = rf'<tr\s+class="mergedtoprow">\s*<th[^>]*>{NB}{re.escape(field)}{NB}</th>{NB}</tr>'
         hm = re.search(header_pat, html, re.DOTALL | re.IGNORECASE)
         if hm:
             rest = html[hm.end():]
