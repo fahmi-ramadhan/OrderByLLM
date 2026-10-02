@@ -1,9 +1,10 @@
 {
-  "dataset": "population",
-  "generated_at": "2026-10-02T18:48:50.174582+00:00",
+  "dataset": "nba",
+  "generated_at": "2026-10-02T18:48:45.476122+00:00",
   "settings": {
-    "csv": "data/population_by_country_2020.csv",
-    "model": "openai/gpt-oss-20b",
+    "csv": "data/nba_heights_200.csv",
+    "nba_limit": 40,
+    "model": "openai/gpt-oss-120b",
     "seeds": [
       0
     ],
@@ -22,82 +23,82 @@
     {
       "algorithm": "pointwise",
       "seed_scores": {
-        "0": 0.876923076923077
+        "0": 0.6666666666666667
       },
-      "score_mean": 0.876923076923077,
+      "score_mean": 0.6666666666666667,
       "score_std": 0.0,
-      "price": 0.005842,
-      "tokens": 30252
+      "price": 0.009875,
+      "tokens": 23871
     },
     {
       "algorithm": "pointwise_with_search",
       "seed_scores": {
-        "0": 0.9743589743589745
+        "0": 0.9153846153846155
       },
-      "score_mean": 0.9743589743589745,
+      "score_mean": 0.9153846153846155,
       "score_std": 0.0,
-      "price": 0.00415,
-      "tokens": 23214
+      "price": 0.006471,
+      "tokens": 19959
     },
     {
       "algorithm": "external_pointwise_4",
       "seed_scores": {
-        "0": 0.9897435897435898
+        "0": 0.7025641025641026
       },
-      "score_mean": 0.9897435897435898,
+      "score_mean": 0.7025641025641026,
       "score_std": 0.0,
-      "price": 0.001153,
-      "tokens": 5910
+      "price": 0.003484,
+      "tokens": 7966
     },
     {
       "algorithm": "external_pointwise_4_with_search",
       "seed_scores": {
-        "0": 0.976923076923077
+        "0": 0.9461538461538462
       },
-      "score_mean": 0.976923076923077,
+      "score_mean": 0.9461538461538462,
       "score_std": 0.0,
-      "price": 0.001994,
-      "tokens": 10146
+      "price": 0.003154,
+      "tokens": 8386
     },
     {
       "algorithm": "quick_sort",
       "seed_scores": {
-        "0": 0.9923076923076923
+        "0": 0.6820512820512821
       },
-      "score_mean": 0.9923076923076923,
+      "score_mean": 0.6820512820512821,
       "score_std": 0.0,
-      "price": 0.017112,
-      "tokens": 105052
+      "price": 0.044593,
+      "tokens": 114090
     },
     {
       "algorithm": "quick_sort3",
       "seed_scores": {
-        "0": 0.9923076923076923
+        "0": 0.7000000000000001
       },
-      "score_mean": 0.9923076923076923,
+      "score_mean": 0.7000000000000001,
       "score_std": 0.0,
-      "price": 0.033837,
-      "tokens": 206769
+      "price": 0.113915,
+      "tokens": 293155
     },
     {
       "algorithm": "external_bubble_sort_4",
       "seed_scores": {
-        "0": 0.9923076923076923
+        "0": 0.6923076923076924
       },
-      "score_mean": 0.9923076923076923,
+      "score_mean": 0.6923076923076924,
       "score_std": 0.0,
-      "price": 0.028627,
-      "tokens": 143784
+      "price": 0.075795,
+      "tokens": 176400
     },
     {
       "algorithm": "external_merge_sort_4",
       "seed_scores": {
-        "0": 0.9897435897435898
+        "0": 0.6794871794871795
       },
-      "score_mean": 0.9897435897435898,
+      "score_mean": 0.6794871794871795,
       "score_std": 0.0,
-      "price": 0.007727,
-      "tokens": 41419
+      "price": 0.021161,
+      "tokens": 49507
     }
   ],
   "metric_name": "kendalltau"

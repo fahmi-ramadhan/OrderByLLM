@@ -1,6 +1,6 @@
 {
   "dataset": "population",
-  "generated_at": "2026-09-28T13:04:50.911723+00:00",
+  "generated_at": "2026-10-02T18:48:50.179401+00:00",
   "settings": {
     "csv": "data/population_by_country_2020.csv",
     "model": "openai/gpt-oss-120b",
@@ -32,12 +32,12 @@
     {
       "algorithm": "pointwise_with_search",
       "seed_scores": {
-        "0": 0.9974358974358974
+        "0": 0.9820512820512821
       },
-      "score_mean": 0.9974358974358974,
+      "score_mean": 0.9820512820512821,
       "score_std": 0.0,
-      "price": 0.008266,
-      "tokens": 22740
+      "price": 0.008858,
+      "tokens": 24145
     },
     {
       "algorithm": "external_pointwise_4",
@@ -52,12 +52,12 @@
     {
       "algorithm": "external_pointwise_4_with_search",
       "seed_scores": {
-        "0": 0.9846153846153847
+        "0": 0.9743589743589745
       },
-      "score_mean": 0.9846153846153847,
+      "score_mean": 0.9743589743589745,
       "score_std": 0.0,
-      "price": 0.003582,
-      "tokens": 8997
+      "price": 0.004352,
+      "tokens": 10754
     },
     {
       "algorithm": "quick_sort",

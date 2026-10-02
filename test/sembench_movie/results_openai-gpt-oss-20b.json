@@ -1,6 +1,6 @@
 {
   "dataset": "sembench_movie",
-  "generated_at": "2026-09-28T13:05:13.046543+00:00",
+  "generated_at": "2026-10-02T18:49:11.356422+00:00",
   "settings": {
     "csv": "data/movie/rotten_tomatoes_movie_reviews.csv",
     "top_k_movies": 2,
