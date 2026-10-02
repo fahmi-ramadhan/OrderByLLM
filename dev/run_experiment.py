@@ -8,6 +8,7 @@ import statistics
 import sys
 from collections import defaultdict
 from datetime import datetime, timezone
+from itertools import combinations
 from pathlib import Path
 
 import ir_datasets
@@ -217,6 +218,17 @@ def _wrap(coro):
     return _inner()
 
 
+def _stratified_subset(df: pd.DataFrame, limit: int) -> pd.DataFrame:
+    """Pick `limit` rows spread evenly across the height range."""
+    ordered = df.sort_values(
+        by=["h_meters", "full_name"], ascending=[True, True]
+    ).reset_index(drop=True)
+    if limit >= len(ordered):
+        return ordered.copy()
+    idx = sorted({round(i * (len(ordered) - 1) / (limit - 1)) for i in range(limit)})
+    return ordered.iloc[idx].copy()
+
+
 
 async def run_nba(args, client: AsyncOpenAI, pbar: tqdm | None = None) -> dict:
     df = pd.read_csv(_resolve(args.nba_csv))
@@ -225,7 +237,7 @@ async def run_nba(args, client: AsyncOpenAI, pbar: tqdm | None = None) -> dict:
     if args.nba_limit is not None:
         if args.nba_limit <= 1:
             raise ValueError("--nba-limit must be greater than 1.")
-        df = df.head(args.nba_limit).copy()
+        df = _stratified_subset(df, args.nba_limit)
 
     names = df["full_name"].astype(str).tolist()
     gold = (
@@ -269,6 +281,7 @@ async def run_nba(args, client: AsyncOpenAI, pbar: tqdm | None = None) -> dict:
         "generated_at": _now_iso(),
         "settings": {
             "csv": args.nba_csv,
+            "nba_limit": args.nba_limit,
             "model": args.model,
             "seeds": args.seeds,
             "algorithms": [m["algorithm"] for m in metrics],
@@ -335,7 +348,7 @@ async def _run_dl19_algorithms_once(
         if alg_pbar is not None:
             alg_pbar.set_description(f"  alg: {name:<35s}")
 
-    assert len(ranking) == 100, print(len(ranking), 'not 100 for DL19')
+    assert len(ranking) >= 10, f"Expected at least 10 docs per query, got {len(ranking)}"
     outputs = {}
     p_prompt  = _safe_prompt(passage_pointwise_prompt_template,           question=query)
     ep_prompt = _safe_prompt(passage_external_pointwise_prompt_template,  question=query)
@@ -388,6 +401,8 @@ async def _run_dl19_algorithms_once(
 
 async def run_dl19(args, client: AsyncOpenAI, pbar: tqdm | None = None, alg_pbar: tqdm | None = None) -> dict:
     first_stage, evaluator, bm25_by_qid = _build_dl19_data(_resolve(args.dl19_run_file), args.hit_depth)
+    if args.dl19_query_limit is not None:
+        first_stage = first_stage[:args.dl19_query_limit]
     acc = _empty_acc(DL19_ALGORITHMS)
 
     for seed in args.seeds:
@@ -456,6 +471,7 @@ async def run_dl19(args, client: AsyncOpenAI, pbar: tqdm | None = None, alg_pbar
         "settings": {
             "run_file": args.dl19_run_file,
             "hit_depth": args.hit_depth,
+            "dl19_query_limit": args.dl19_query_limit,
             "model": args.model,
             "seeds": args.seeds,
             "algorithms": [m["algorithm"] for m in metrics],
@@ -467,7 +483,7 @@ async def run_dl19(args, client: AsyncOpenAI, pbar: tqdm | None = None, alg_pbar
 
 
 
-_DEFAULT_MODELS = "llama3.1-70b,llama3.1-405b,openai-gpt-4.1"
+_DEFAULT_MODELS = "openai/gpt-oss-120b, openai/gpt-oss-20b"
 
 
 def _output_path(dataset: str, model: str) -> Path:
@@ -501,6 +517,12 @@ def main():
     )
     parser.add_argument("--dl19-run-file", default="data/run.msmarco-v1-passage.bm25-default.dl19.txt")
     parser.add_argument("--hit-depth", type=int, default=100)
+    parser.add_argument(
+        "--dl19-query-limit",
+        type=int,
+        default=None,
+        help="Max number of DL19 queries to evaluate (default: all 43 with qrels).",
+    )
     parser.add_argument("--seeds", default="0")
     parser.add_argument("--nba-csv", default="data/nba_heights_200.csv")
     parser.add_argument(
