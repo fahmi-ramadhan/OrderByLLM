@@ -18,6 +18,8 @@ TEST_DATASETS = ("population", "dl20", "sembench_movie")
 
 # Per-dataset flags for trimmed data (budget-friendly runs).
 DATASET_EXTRA_FLAGS = {
+    "nba": ["--nba-limit", "40"],
+    "dl19": ["--dl19-query-limit", "4", "--hit-depth", "40"],
     "population": ["--population-limit", "40"],
     "sembench_movie": ["--movie-top-k", "2", "--movie-review-limit", "50"],
     "dl20": ["--dl20-query-limit", "4", "--hit-depth", "40"],
@@ -75,16 +77,15 @@ def _run(cmd: list[str]) -> None:
 def _run_dev_experiments() -> None:
     _print_header("Dev Experiments")
     for dataset in DEV_DATASETS:
-        _run(
-            [
-                sys.executable,
-                "dev/run_experiment.py",
-                "--dataset",
-                dataset,
-                "--models",
-                DEV_MODELS,
-            ]
-        )
+        cmd = [
+            sys.executable,
+            "dev/run_experiment.py",
+            "--dataset",
+            dataset,
+            "--models",
+            DEV_MODELS,
+        ] + DATASET_EXTRA_FLAGS.get(dataset, [])
+        _run(cmd)
 
 
 def _run_test_experiments() -> None:
