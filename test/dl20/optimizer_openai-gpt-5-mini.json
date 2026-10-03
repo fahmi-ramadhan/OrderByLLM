@@ -18,7 +18,7 @@
       "rrf_ensemble": {
         "3": {
           "dataset": "dl20",
-          "generated_at": "2026-10-02T22:34:48.563910+00:00",
+          "generated_at": "2026-10-03T12:45:34.336726+00:00",
           "settings": {
             "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
             "hit_depth": 100,
@@ -159,7 +159,7 @@
         },
         "6": {
           "dataset": "dl20",
-          "generated_at": "2026-10-02T22:35:00.492289+00:00",
+          "generated_at": "2026-10-03T12:45:39.440950+00:00",
           "settings": {
             "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
             "hit_depth": 100,
@@ -305,7 +305,7 @@
         },
         "9": {
           "dataset": "dl20",
-          "generated_at": "2026-10-02T22:35:13.610901+00:00",
+          "generated_at": "2026-10-03T12:45:45.361818+00:00",
           "settings": {
             "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
             "hit_depth": 100,
@@ -457,7 +457,7 @@
         },
         "12": {
           "dataset": "dl20",
-          "generated_at": "2026-10-02T22:35:27.064683+00:00",
+          "generated_at": "2026-10-03T12:45:52.132432+00:00",
           "settings": {
             "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
             "hit_depth": 100,
@@ -625,7 +625,7 @@
       "llm_judge": {
         "3": {
           "dataset": "dl20",
-          "generated_at": "2026-10-02T22:35:35.003919+00:00",
+          "generated_at": "2026-10-03T12:45:54.884094+00:00",
           "settings": {
             "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
             "hit_depth": 100,
@@ -763,7 +763,7 @@
         },
         "6": {
           "dataset": "dl20",
-          "generated_at": "2026-10-02T22:35:44.481819+00:00",
+          "generated_at": "2026-10-03T12:45:58.642644+00:00",
           "settings": {
             "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
             "hit_depth": 100,
@@ -903,7 +903,7 @@
         },
         "9": {
           "dataset": "dl20",
-          "generated_at": "2026-10-02T22:35:53.513452+00:00",
+          "generated_at": "2026-10-03T12:46:05.120009+00:00",
           "settings": {
             "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
             "hit_depth": 100,
@@ -1044,7 +1044,7 @@
         },
         "12": {
           "dataset": "dl20",
-          "generated_at": "2026-10-02T22:36:02.501143+00:00",
+          "generated_at": "2026-10-03T12:46:11.304750+00:00",
           "settings": {
             "run_file": "data/run.msmarco-v1-passage.bm25-default.dl20.txt",
             "hit_depth": 100,

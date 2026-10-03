@@ -1,6 +1,6 @@
 {
   "dataset": "nfcorpus",
-  "generated_at": "2026-10-02T22:12:14.414122+00:00",
+  "generated_at": "2026-10-03T12:27:01.813775+00:00",
   "settings": {
     "data_dir": "data/nfcorpus",
     "model": "openai-gpt-5-mini",

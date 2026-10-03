@@ -18,7 +18,7 @@
       "rrf_ensemble": {
         "5": {
           "dataset": "nfcorpus",
-          "generated_at": "2026-10-02T22:16:52.081768+00:00",
+          "generated_at": "2026-10-03T12:31:24.788577+00:00",
           "settings": {
             "nfcorpus_dir": "data/nfcorpus",
             "nfcorpus_limit": 3,
@@ -53,7 +53,7 @@
         },
         "10": {
           "dataset": "nfcorpus",
-          "generated_at": "2026-10-02T22:16:58.557947+00:00",
+          "generated_at": "2026-10-03T12:31:29.366029+00:00",
           "settings": {
             "nfcorpus_dir": "data/nfcorpus",
             "nfcorpus_limit": 3,
@@ -88,7 +88,7 @@
         },
         "18": {
           "dataset": "nfcorpus",
-          "generated_at": "2026-10-02T22:17:08.159259+00:00",
+          "generated_at": "2026-10-03T12:31:36.726204+00:00",
           "settings": {
             "nfcorpus_dir": "data/nfcorpus",
             "nfcorpus_limit": 3,
@@ -123,7 +123,7 @@
         },
         "26": {
           "dataset": "nfcorpus",
-          "generated_at": "2026-10-02T22:17:19.461814+00:00",
+          "generated_at": "2026-10-03T12:31:45.256397+00:00",
           "settings": {
             "nfcorpus_dir": "data/nfcorpus",
             "nfcorpus_limit": 3,
@@ -161,7 +161,7 @@
       "llm_judge": {
         "5": {
           "dataset": "nfcorpus",
-          "generated_at": "2026-10-02T22:17:20.986159+00:00",
+          "generated_at": "2026-10-03T12:31:46.522725+00:00",
           "settings": {
             "nfcorpus_dir": "data/nfcorpus",
             "nfcorpus_limit": 3,
@@ -195,7 +195,7 @@
         },
         "10": {
           "dataset": "nfcorpus",
-          "generated_at": "2026-10-02T22:17:26.981298+00:00",
+          "generated_at": "2026-10-03T12:31:50.616045+00:00",
           "settings": {
             "nfcorpus_dir": "data/nfcorpus",
             "nfcorpus_limit": 3,
@@ -230,7 +230,7 @@
         },
         "18": {
           "dataset": "nfcorpus",
-          "generated_at": "2026-10-02T22:17:30.723684+00:00",
+          "generated_at": "2026-10-03T12:31:53.578416+00:00",
           "settings": {
             "nfcorpus_dir": "data/nfcorpus",
             "nfcorpus_limit": 3,
@@ -265,7 +265,7 @@
         },
         "26": {
           "dataset": "nfcorpus",
-          "generated_at": "2026-10-02T22:17:36.119943+00:00",
+          "generated_at": "2026-10-03T12:31:58.089504+00:00",
           "settings": {
             "nfcorpus_dir": "data/nfcorpus",
             "nfcorpus_limit": 3,

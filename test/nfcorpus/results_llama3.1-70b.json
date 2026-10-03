@@ -1,6 +1,6 @@
 {
   "dataset": "nfcorpus",
-  "generated_at": "2026-10-02T22:00:44.247547+00:00",
+  "generated_at": "2026-10-03T12:18:28.228017+00:00",
   "settings": {
     "data_dir": "data/nfcorpus",
     "model": "llama3.1-70b",

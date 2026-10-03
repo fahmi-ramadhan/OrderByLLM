@@ -19,7 +19,7 @@
       "rrf_ensemble": {
         "10": {
           "dataset": "nfcorpus",
-          "generated_at": "2026-10-02T22:33:43.945885+00:00",
+          "generated_at": "2026-10-03T12:44:43.848272+00:00",
           "settings": {
             "nfcorpus_dir": "data/nfcorpus",
             "nfcorpus_limit": 3,
@@ -54,7 +54,7 @@
         },
         "16": {
           "dataset": "nfcorpus",
-          "generated_at": "2026-10-02T22:33:49.462985+00:00",
+          "generated_at": "2026-10-03T12:44:48.816407+00:00",
           "settings": {
             "nfcorpus_dir": "data/nfcorpus",
             "nfcorpus_limit": 3,
@@ -90,7 +90,7 @@
         },
         "22": {
           "dataset": "nfcorpus",
-          "generated_at": "2026-10-02T22:33:57.677997+00:00",
+          "generated_at": "2026-10-03T12:44:56.938734+00:00",
           "settings": {
             "nfcorpus_dir": "data/nfcorpus",
             "nfcorpus_limit": 3,
@@ -126,7 +126,7 @@
         },
         "28": {
           "dataset": "nfcorpus",
-          "generated_at": "2026-10-02T22:34:06.545885+00:00",
+          "generated_at": "2026-10-03T12:45:05.200705+00:00",
           "settings": {
             "nfcorpus_dir": "data/nfcorpus",
             "nfcorpus_limit": 3,
@@ -162,7 +162,7 @@
         },
         "34": {
           "dataset": "nfcorpus",
-          "generated_at": "2026-10-02T22:34:17.176755+00:00",
+          "generated_at": "2026-10-03T12:45:14.661160+00:00",
           "settings": {
             "nfcorpus_dir": "data/nfcorpus",
             "nfcorpus_limit": 3,
@@ -200,7 +200,7 @@
       "llm_judge": {
         "10": {
           "dataset": "nfcorpus",
-          "generated_at": "2026-10-02T22:34:18.712548+00:00",
+          "generated_at": "2026-10-03T12:45:15.866843+00:00",
           "settings": {
             "nfcorpus_dir": "data/nfcorpus",
             "nfcorpus_limit": 3,
@@ -234,7 +234,7 @@
         },
         "16": {
           "dataset": "nfcorpus",
-          "generated_at": "2026-10-02T22:34:21.118458+00:00",
+          "generated_at": "2026-10-03T12:45:17.731963+00:00",
           "settings": {
             "nfcorpus_dir": "data/nfcorpus",
             "nfcorpus_limit": 3,
@@ -269,7 +269,7 @@
         },
         "22": {
           "dataset": "nfcorpus",
-          "generated_at": "2026-10-02T22:34:25.532972+00:00",
+          "generated_at": "2026-10-03T12:45:21.221519+00:00",
           "settings": {
             "nfcorpus_dir": "data/nfcorpus",
             "nfcorpus_limit": 3,
@@ -304,7 +304,7 @@
         },
         "28": {
           "dataset": "nfcorpus",
-          "generated_at": "2026-10-02T22:34:29.740788+00:00",
+          "generated_at": "2026-10-03T12:45:25.137468+00:00",
           "settings": {
             "nfcorpus_dir": "data/nfcorpus",
             "nfcorpus_limit": 3,
@@ -340,7 +340,7 @@
         },
         "34": {
           "dataset": "nfcorpus",
-          "generated_at": "2026-10-02T22:34:33.942735+00:00",
+          "generated_at": "2026-10-03T12:45:28.738982+00:00",
           "settings": {
             "nfcorpus_dir": "data/nfcorpus",
             "nfcorpus_limit": 3,

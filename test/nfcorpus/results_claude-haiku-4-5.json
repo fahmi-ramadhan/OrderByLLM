@@ -1,6 +1,6 @@
 {
   "dataset": "nfcorpus",
-  "generated_at": "2026-10-02T22:07:20.923230+00:00",
+  "generated_at": "2026-10-03T12:23:19.753992+00:00",
   "settings": {
     "data_dir": "data/nfcorpus",
     "model": "claude-haiku-4-5",
